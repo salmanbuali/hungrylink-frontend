@@ -2,3 +2,16 @@ body {
   margin: 0;
   background-color: aquamarine;
 }
+
+.logo {
+  width: 50px;
+}
+
+.navBar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+a {
+  padding-left: 20px;
+}
