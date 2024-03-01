@@ -4,8 +4,12 @@ const Navbar = ({ user, handleLogOut }) => {
   let userOptions
   if (user) {
     userOptions = (
-      <nav>
-        <Link>Welcome {user.email}!</Link>
+      <nav className="navBar">
+        <Link>
+          <img src={user.avatar} alt={user.name} />
+          Welcome
+          {user.name}!
+        </Link>
         <Link to="/">Home</Link>
         <Link onClick={handleLogOut} to="/">
           Sign Out

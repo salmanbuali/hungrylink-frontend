@@ -1,9 +1,7 @@
-// import { useState, useEffect } from 'react'
-// import axios from 'axios'
-
-import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const User = ({ user }) => {
+  console.log(user)
   // const [user, setUsers] = useState({})
 
   // useEffect(() => {
@@ -16,11 +14,48 @@ const User = ({ user }) => {
   // }, [])
 
   return (
-    <div>
-      <h3>User info</h3>
-      <div>
-        <h2>{user.email}</h2>
-        <p>{user.id}</p>
+    <div className="userBackground">
+      <div className="userInfoGrid">
+        <div className="userTopHalf">
+          <h2>User Details Dashboard</h2>
+          <h3>Hello {user.name}!</h3>
+          <p>
+            This is your profile page. Here you can edit your details and view
+            your past orders.
+          </p>
+          <button>
+            <Link to="">Update your Details</Link>
+          </button>
+        </div>
+        <div className="userDetails">
+          <h2>Account Details</h2>
+          <div className="detailsContainer">
+            <div className="detailsColumn">
+              <div>
+                <h3>User Name</h3>
+                <p>{user.name}</p>
+              </div>
+              <div>
+                <h3>Account Type</h3>
+                <p>{user.type}</p>
+              </div>
+            </div>
+            <div className="detailsColumn">
+              <div>
+                <h3>Contact</h3>
+                <p>{user.contact}</p>
+              </div>
+              <div>
+                <h3>Address</h3>
+                <p>{user.address}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="userProfile">
+          <img src={user.avatar} alt={user.name} />
+          <p>Additional info like description/past orders</p>
+        </div>
       </div>
     </div>
   )

@@ -1,10 +1,10 @@
 import Restaurant from '../components/Restaurant'
 
-const Home = () => {
+const Home = ({user}) => {
   return (
     <>
       <div>Home Page</div>
-      <Restaurant />
+      {/* <Restaurant /> */}
     </>
   )
 }
