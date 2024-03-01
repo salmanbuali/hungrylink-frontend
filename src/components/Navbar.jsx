@@ -5,7 +5,7 @@ const Navbar = ({ user, handleLogOut }) => {
   if (user) {
     userOptions = (
       <nav>
-        <h3>Welcome {user.email}!</h3>
+        <Link>Welcome {user.email}!</Link>
         <Link to="/">Home</Link>
         <Link onClick={handleLogOut} to="/">
           Sign Out

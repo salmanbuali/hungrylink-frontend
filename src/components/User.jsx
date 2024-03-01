@@ -1,7 +1,9 @@
 // import { useState, useEffect } from 'react'
 // import axios from 'axios'
 
-const User = ({user}) => {
+import { useEffect } from 'react'
+
+const User = ({ user }) => {
   // const [user, setUsers] = useState({})
 
   // useEffect(() => {
@@ -17,7 +19,8 @@ const User = ({user}) => {
     <div>
       <h3>User info</h3>
       <div>
-          <h2>{user.email}</h2>
+        <h2>{user.email}</h2>
+        <p>{user.id}</p>
       </div>
     </div>
   )
