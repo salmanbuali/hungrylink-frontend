@@ -6,6 +6,8 @@ import Home from './pages/Home'
 import Profile from './pages/Profile'
 import Order from './pages/Order'
 import { CheckSession } from './services/Auth'
+import Register from './pages/Register'
+import SignIn from './pages/SignIn'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -29,7 +31,6 @@ const App = () => {
   }
   return (
     <>
-      <div>Hello</div>
       <div>
         <Navbar />
       </div>
@@ -38,8 +39,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/orders" element={<Order />} />
-          {/* <Route path="/signin" element={<SignIn setUser={setUser} />} /> */}
-          {/* <Route path="/register" element={<Register />} /> */}
+          <Route path="/signin" element={<SignIn setUser={setUser} />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </main>
     </>

@@ -15,30 +15,16 @@ const Navbar = ({ user, handleLogOut }) => {
   }
 
   const publicOptions = (
-    <nav className='navBar'>
+    <nav className="navBar">
       <Link to="/">Home</Link>
       <Link to="/register">Register</Link>
       <Link to="/signin">Sign In</Link>
-      <Link to="/">Home</Link>
       <Link to="profile">Profile</Link>
       <Link to="orders">View All Orders</Link>
     </nav>
   )
 
-  return (
-    <header>
-      <Link to="/">
-        <div className="logo-wrapper" alt="logo">
-          <img
-            className="logo"
-            src="https://avatars.dicebear.com/api/gridy/app.svg"
-            alt="welcome banner"
-          />
-        </div>
-      </Link>
-      {user ? userOptions : publicOptions}
-    </header>
-  )
+  return <header>{user ? userOptions : publicOptions}</header>
 }
 
 export default Navbar

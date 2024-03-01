@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { SignInUser } from '../services/Auth'
-import { useNavigate } from 'react-router-dom'
-
+import { useNavigate, Link } from 'react-router-dom'
 const SignIn = ({ setUser }) => {
   let navigate = useNavigate()
 
@@ -20,35 +19,47 @@ const SignIn = ({ setUser }) => {
   }
 
   return (
-    <div className="signin col">
-      <div className="card-overlay centered">
-        <form className="col" onSubmit={handleSubmit}>
-          <div className="input-wrapper">
+    <div>
+      <form className="signInForm" onSubmit={handleSubmit}>
+        <div className="formDiv">
+          <h1>Sign In</h1>
+          <div className="inputDiv">
             <label htmlFor="email">Email</label>
-            <input
-              onChange={handleChange}
-              name="email"
-              type="email"
-              placeholder="example@example.com"
-              value={formValues.email}
-              required
-            />
+            <div className="inputs">
+              <input
+                onChange={handleChange}
+                name="email"
+                type="email"
+                placeholder="example@example.com"
+                value={formValues.email}
+                required
+              />
+              <i className="bx bx-user-circle"></i>
+            </div>
           </div>
-          <div className="input-wrapper">
+          <div className="inputDiv">
             <label htmlFor="password">Password</label>
-            <input
-              onChange={handleChange}
-              type="password"
-              name="password"
-              value={formValues.password}
-              required
-            />
+            <div className="inputs">
+              <input
+                onChange={handleChange}
+                type="password"
+                name="password"
+                value={formValues.password}
+                required
+              />
+              <i className="bx bx-lock-alt"></i>
+            </div>
           </div>
-          <button disabled={!formValues.email || !formValues.password}>
-            Sign In
-          </button>
-        </form>
-      </div>
+          <h5>
+            Dont have an account? <Link to="/register">Register</Link>
+          </h5>
+          <div className='buttonDiv'>
+            <button disabled={!formValues.email || !formValues.password}>
+              Sign In
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
   )
 }
