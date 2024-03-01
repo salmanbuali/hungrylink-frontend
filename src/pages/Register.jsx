@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { RegisterUser } from '../services/Auth'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 const Register = () => {
   let navigate = useNavigate()
@@ -146,6 +146,9 @@ const Register = () => {
               />
             </div>
           </div>
+          <h5>
+            Already have an account? <Link to="/signin">Sign In</Link>
+          </h5>
           <div className="buttonDiv">
             <button
               disabled={
@@ -159,7 +162,7 @@ const Register = () => {
                 !formValues.avatar
               }
             >
-              Sign In
+              Register
             </button>
           </div>
         </div>
