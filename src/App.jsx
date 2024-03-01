@@ -15,6 +15,7 @@ const App = () => {
   const checkToken = async () => {
     const user = await CheckSession()
     setUser(user)
+    console.log(user)
   }
 
   useEffect(() => {
@@ -32,12 +33,12 @@ const App = () => {
   return (
     <>
       <div>
-        <Navbar />
+        <Navbar user={user} handleLogOut={handleLogOut} />
       </div>
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile user={user} />} />
           <Route path="/orders" element={<Order />} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />

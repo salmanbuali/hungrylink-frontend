@@ -6,10 +6,12 @@ const Navbar = ({ user, handleLogOut }) => {
     userOptions = (
       <nav>
         <h3>Welcome {user.email}!</h3>
-        <Link to="/feed">Feed</Link>
+        <Link to="/">Home</Link>
         <Link onClick={handleLogOut} to="/">
           Sign Out
         </Link>
+        <Link to="profile">Profile</Link>
+        <Link to="orders">View All Orders</Link>
       </nav>
     )
   }
@@ -19,8 +21,6 @@ const Navbar = ({ user, handleLogOut }) => {
       <Link to="/">Home</Link>
       <Link to="/register">Register</Link>
       <Link to="/signin">Sign In</Link>
-      <Link to="profile">Profile</Link>
-      <Link to="orders">View All Orders</Link>
     </nav>
   )
 

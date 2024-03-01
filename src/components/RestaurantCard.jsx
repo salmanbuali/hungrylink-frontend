@@ -4,7 +4,7 @@ const Restaurant = () => {
   return (
     <>
       <Link to={""}>
-        <div>your Restaurant info</div>
+        <div>Restaurant cards</div>
       </Link>
     </>
   )

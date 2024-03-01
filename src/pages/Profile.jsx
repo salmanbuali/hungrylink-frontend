@@ -1,8 +1,10 @@
-const Profile = () =>{
+import User from '../components/User'
+
+const Profile = ({user}) => {
   return (
     <>
-      <div>
-        Profile page
+      <div className="profileDiv">
+        <User user={user} />
       </div>
     </>
   )

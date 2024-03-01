@@ -15,7 +15,7 @@ const SignIn = ({ setUser }) => {
     const payload = await SignInUser(formValues)
     setFormValues({ email: '', password: '' })
     setUser(payload)
-    navigate('/feed')
+    navigate('/')
   }
 
   return (
@@ -53,7 +53,7 @@ const SignIn = ({ setUser }) => {
           <h5>
             Dont have an account? <Link to="/register">Register</Link>
           </h5>
-          <div className='buttonDiv'>
+          <div className="buttonDiv">
             <button disabled={!formValues.email || !formValues.password}>
               Sign In
             </button>

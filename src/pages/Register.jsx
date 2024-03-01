@@ -25,11 +25,19 @@ const Register = () => {
     await RegisterUser({
       name: formValues.name,
       email: formValues.email,
+      type: formValues.type,
+      avatar: formValues.avatar,
+      contact: formValues.contact,
+      address: formValues.address,
       password: formValues.password
     })
     setFormValues({
       name: '',
       email: '',
+      type: '',
+      avatar: '',
+      contact: '',
+      address: '',
       password: '',
       confirmPassword: ''
     })
