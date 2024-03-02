@@ -1,9 +1,15 @@
 import { useNavigate } from 'react-router-dom'
 import Client from '../services/api'
+import { useState, useEffect } from 'react'
 
 const Restaurant = ({ user }) => {
   let navigate = useNavigate()
+
+  const [menuExist, setMenuExist] = useState(false)
+
   const createNewMenu = async () => {
+    setMenuExist(true)
+    console.log(menuExist)
     await Client.post('/rest/newMenu', user)
     navigate(`/menu/${user.restId._id}`)
   }
