@@ -2,17 +2,26 @@ import { useNavigate } from 'react-router-dom'
 import Client from '../services/api'
 import { useState, useEffect } from 'react'
 
-const Restaurant = ({ user }) => {
+const Restaurant = ({ user, menuExist }) => {
   let navigate = useNavigate()
 
-  const [menuExist, setMenuExist] = useState(false)
+  const [resto, setResto] = useState(null)
 
   const createNewMenu = async () => {
-    setMenuExist(true)
-    console.log(menuExist)
     await Client.post('/rest/newMenu', user)
+    const response = await Client.post('/rest/newMenu', user)
+    console.log('creating resto', response)
+    setResto(response.data)
     navigate(`/menu/${user.restId._id}`)
   }
+
+  // useEffect(() => {
+  //   if (menuExist === false) {
+  //     createNewMenu()
+  //   }
+  // }, [])
+
+  console.log(menuExist)
 
   return (
     <>
@@ -24,8 +33,10 @@ const Restaurant = ({ user }) => {
         <h6>Contact: {user.contact}</h6>
       </div>
       <div>
-        {!user.restId.menu && (
+        {menuExist === false ? (
           <button onClick={createNewMenu}>Create Menu</button>
+        ) : (
+          <h2>Menu Already Exists</h2>
         )}
       </div>
     </>

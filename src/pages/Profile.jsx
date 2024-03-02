@@ -1,7 +1,8 @@
 import User from '../components/User'
 import Restaurant from '../components/Restaurant'
 
-const Profile = ({ user }) => {
+const Profile = ({ user, menuExist }) => {
+
   return (
     <div>
       {user.type === 'customer' ? (
@@ -12,7 +13,7 @@ const Profile = ({ user }) => {
         </div>
       ) : (
         <div>
-          <Restaurant user={user} />
+          <Restaurant menuExist={menuExist} user={user} />
         </div>
       )}
     </div>
