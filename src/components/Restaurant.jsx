@@ -1,7 +1,13 @@
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import Client from '../services/api'
 
 const Restaurant = ({ user }) => {
-  console.log(user)
+  let navigate = useNavigate()
+  const createNewMenu = async () => {
+    await Client.post('/rest/newMenu', user)
+    navigate(`/menu/${user.restId._id}`)
+  }
+
   return (
     <>
       <div className="restDiv">
@@ -9,13 +15,11 @@ const Restaurant = ({ user }) => {
         <h4>{user.name}</h4>
         <img src={user.avatar} alt={user.name} />
         <h4>Account Type: {user.type}</h4>
-        <h6>contact: {user.contact}</h6>
+        <h6>Contact: {user.contact}</h6>
       </div>
       <div>
-        {!user.menu && (
-          <button>
-            <Link to="/createmenu">Create Menu</Link>
-          </button>
+        {!user.restId.menu && (
+          <button onClick={createNewMenu}>Create Menu</button>
         )}
       </div>
     </>
