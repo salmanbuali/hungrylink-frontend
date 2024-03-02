@@ -8,13 +8,15 @@ import Order from './pages/Order'
 import { CheckSession } from './services/Auth'
 import Register from './pages/Register'
 import SignIn from './pages/SignIn'
+import CreateMenu from './pages/CreateMenu'
 
 const App = () => {
   const [user, setUser] = useState(null)
 
   const checkToken = async () => {
     const user = await CheckSession()
-    setUser(user)
+    // setUser(user)
+    console.log(user)
   }
 
   useEffect(() => {
@@ -32,15 +34,16 @@ const App = () => {
   return (
     <>
       <div>
-        <Navbar />
+        <Navbar user={user} handleLogOut={handleLogOut} />
       </div>
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile user={user} />} />
           <Route path="/orders" element={<Order />} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/createmenu" element={<CreateMenu />} />
         </Routes>
       </main>
     </>
