@@ -14,8 +14,9 @@ const Navbar = ({ user, handleLogOut }) => {
         <Link onClick={handleLogOut} to="/">
           Sign Out
         </Link>
-        <Link to="profile">Profile</Link>
-        <Link to="orders">View All Orders</Link>
+        <Link to="/profile">Profile</Link>
+        {(user.type === 'restaurant') && <Link to={`/menu/${user.restId._id}`}> Menu </Link>}
+        <Link to="/orders">View All Orders</Link>
       </nav>
     )
   }
