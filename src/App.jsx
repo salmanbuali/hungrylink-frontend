@@ -8,7 +8,7 @@ import Order from './pages/Order'
 import { CheckSession } from './services/Auth'
 import Register from './pages/Register'
 import SignIn from './pages/SignIn'
-import CreateMenu from './pages/CreateMenu'
+import Menu from './pages/Menu'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -43,7 +43,7 @@ const App = () => {
           <Route path="/orders" element={<Order />} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/createmenu" element={<CreateMenu />} />
+          <Route path="/menu/:restId" element={<Menu />} />
         </Routes>
       </main>
     </>
