@@ -8,15 +8,16 @@ body {
   width: 50px;
 }
 
+
 .navBar {
   display: flex;
   justify-content: flex-end;
   background-color: seagreen;
 }
-
 .navBar img {
   width: 20px;
   border-radius: 20px;
+
 }
 
 i {
