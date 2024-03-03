@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import WebLogo from './WebLogo' // Assuming WebLogo is your logo component
+import WebLogo from './WebLogo'
 import '../styles/navBar.css'
 
 const Navbar = ({ user, handleLogOut }) => {
-  const [showDropdown, setShowDropdown] = useState(false) // State for dropdown menu
+  const [showDropdown, setShowDropdown] = useState(false)
 
   let userOptions
   if (user) {
@@ -13,8 +13,7 @@ const Navbar = ({ user, handleLogOut }) => {
         <div className="navBarLeft">
           <WebLogo className="navBarLogo" />
         </div>
-        <div className="navBarRight">
-          <img src={user.avatar} alt={user.name} />
+        <div className="navBarMiddle">
           <Link to="/">Home</Link>
           <Link to="/profile">Profile</Link>
           {user.type === 'restaurant' && user.restId.menu && (
@@ -25,6 +24,17 @@ const Navbar = ({ user, handleLogOut }) => {
             Sign Out
           </Link>
         </div>
+        <div className="navBarRight">
+          <div className="userAvatar">
+            <img src={user.avatar} alt={user.name} />
+          </div>
+          <div
+            className="dropdown-icon"
+            onClick={() => setShowDropdown(!showDropdown)}
+          >
+            <i className="fa fa-chevron-down"></i>
+          </div>
+        </div>
       </nav>
     )
   }
@@ -34,22 +44,22 @@ const Navbar = ({ user, handleLogOut }) => {
       <div className="navBarLeft">
         <WebLogo className="navBarLogo" />
       </div>
-      <div className="navBarRight">
+      <div className="navBarMiddle">
         <Link to="/">Home</Link>
         <Link to="/register">Register</Link>
         <Link to="/signin">Sign In</Link>
       </div>
+      <div className="navBarRight"></div>
     </nav>
   )
 
   return (
     <header>
       {user ? userOptions : publicOptions}
-      {/* Dropdown menu */}
       {showDropdown && (
         <div className="dropdown-menu">
           <p className="dropdown-item">Signed in as</p>
-          <p className="dropdown-item">zoey@example.com</p>
+          <p className="dropdown-item">{user.email}</p>
           <hr className="dropdown-divider" />
           <p className="dropdown-item">My Settings</p>
           <p className="dropdown-item logout" onClick={handleLogOut}>
