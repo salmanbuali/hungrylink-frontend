@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import Client from '../services/api'
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const Restaurant = ({ user }) => {
   let navigate = useNavigate()
@@ -33,7 +34,7 @@ const Restaurant = ({ user }) => {
         {menus === false ? (
           <button onClick={createNewMenu}>Create Menu</button>
         ) : (
-          <h2>Menu Already Exists</h2>
+          <Link to={`/menu/${user.restId._id}`}>View Menu</Link>
         )}
       </div>
     </>
