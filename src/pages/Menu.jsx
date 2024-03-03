@@ -25,7 +25,7 @@ const Menu = ({ user }) => {
         <button className="add-category-button">
           <Link to="/createcategory">Add Category</Link>
         </button>
-      )} */}
+      )}
       {restaurantDetails?.menu?.categoryId?.length > 0 ? (
         <Category categories={restaurantDetails.menu.categoryId} />
       ) : (
