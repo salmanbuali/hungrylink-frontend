@@ -6,11 +6,11 @@ const Category = ({ categories }) => {
   // const [category, setCategory] = useState([])
 
   return (
-    <div>
+    <div className="categories-div-s">
       <ul>
-        {categories.map((category) => (
-          <li>{category.name}</li>
-        ))}
+      {categories.map((category) => (    
+          <li><div key={category._id}></div>{category.name}</li>
+      ))}
       </ul>
     </div>
   )
