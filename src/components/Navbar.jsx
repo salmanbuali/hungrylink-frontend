@@ -14,6 +14,7 @@ const Navbar = ({ user, handleLogOut }) => {
           <WebLogo className="navBarLogo" />
         </div>
         <div className="navBarRight">
+          <img src={user.avatar} alt={user.name} />
           <Link to="/">Home</Link>
           <Link to="/profile">Profile</Link>
           {user.type === 'restaurant' && user.restId.menu && (

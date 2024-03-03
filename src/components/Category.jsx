@@ -1,20 +1,22 @@
-import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+// import { useParams } from 'react-router-dom'
+// import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
-const Category = () => {
-  const { restId } = useParams('restId')
-  const [category, setCategory] = useState([])
-
-  // useEffect(()=>{
-  //   const getCategory = ()=>{
-  //     const response =
-
-  //   }
-  // })
-
+const Category = ({ categories }) => {
+  // const { restId } = useParams('restId')
+  // const [category, setCategory] = useState([])
   return (
-    <div>
-      <h2>Categories</h2>
+    <div className="categories-div-s">
+      <ul>
+      {categories.map((category) => (    
+          <li>
+            <div key={category._id}></div>{category.name}
+            <button>
+              <Link to="/createitem">Add Items</Link>
+            </button>
+          </li>
+      ))}
+      </ul>
     </div>
   )
 }
