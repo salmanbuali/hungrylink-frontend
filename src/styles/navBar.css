@@ -1,0 +1,64 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #238636;
+  border-bottom: 1px solid #238636;
+  font-weight: bolder;
+}
+
+.navBarLeft {
+  display: flex;
+  align-items: center;
+}
+
+.navBarRight {
+  display: flex;
+}
+
+.navBarLogo {
+  width: 10%;
+  margin-right: 20px;
+}
+
+.navBar a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+
+.navBar a:hover {
+  background-color: #000000;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  display: none;
+  z-index: 9999;
+}
+
+.dropdown-menu p {
+  padding: 0.5rem 1rem;
+  margin: 0;
+}
+
+.dropdown-menu hr {
+  margin: 0.5rem 0;
+  border-top: 1px solid #ccc;
+}
+
+.dropdown-menu .logout {
+  color: #dc3545;
+  cursor: pointer;
+}
+
+.dropdown-menu .logout:hover {
+  background-color: #f8d7da;
+}

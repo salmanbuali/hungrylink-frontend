@@ -10,9 +10,9 @@ import Register from './pages/Register'
 import SignIn from './pages/SignIn'
 import Menu from './pages/Menu'
 import AddCat from './pages/AddCat'
+import Footer from './components/Footer'
 
 const App = () => {
-
   const [user, setUser] = useState(null)
 
   const checkToken = async () => {
@@ -41,10 +41,7 @@ const App = () => {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route
-            path="/profile"
-            element={<Profile user={user} />}
-          />
+          <Route path="/profile" element={<Profile user={user} />} />
           <Route path="/orders" element={<Order />} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
@@ -52,6 +49,7 @@ const App = () => {
           <Route path="/createcategory" element={<AddCat user={user} />} />
         </Routes>
       </main>
+      <Footer />
     </>
   )
 }
