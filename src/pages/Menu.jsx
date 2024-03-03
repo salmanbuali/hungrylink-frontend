@@ -22,11 +22,11 @@ const Menu = ({ user }) => {
   return (
     <div className='Menu-div-s'>
       <h2>{userRestaurant.name} menu</h2>
-      {user && restId === user.restId._id && (
+      {/* {user && restId === user.restId._id && (
         <button className='add-category-button'>
           <Link to="/createcategory">Add Category</Link>
         </button>
-      )}
+      )} */}
       {restaurantDetails?.menu?.categoryId?.length > 0 ? (
         <Category categories={restaurantDetails.menu.categoryId} />
       ) : <p>No categories</p>}

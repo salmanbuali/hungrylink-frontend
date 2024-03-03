@@ -13,6 +13,9 @@ const AddCat = ({ user }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if(formValues.name === ""){
+      return
+    }
     const cat = { user, categoryName: formValues.name }
     console.log(cat)
     const response = await Client.post(`/rest/newCategory`, cat)
