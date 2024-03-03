@@ -5,17 +5,20 @@ import { Link } from 'react-router-dom'
 const Category = ({ categories }) => {
   // const { restId } = useParams('restId')
   // const [category, setCategory] = useState([])
+
+
   return (
     <div className="categories-div-s">
       <ul>
-      {categories.map((category) => (    
+        {categories.map((category) => (
           <li>
-            <div key={category._id}></div>{category.name}
+            <div key={category._id}></div>
+            {category.name}
             <button>
-              <Link to="/createitem">Add Items</Link>
+              <Link to={`/createitem/${category._id}`}>Add Items</Link>
             </button>
           </li>
-      ))}
+        ))}
       </ul>
     </div>
   )
