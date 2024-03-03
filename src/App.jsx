@@ -49,7 +49,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/menu/:restId" element={<Menu user={user} />} />
           <Route path="/createcategory" element={<AddCat user={user} />} />
-          <Route path="/createitem" element={<AddItem user={user} />} />
+          <Route path="/createitem/:catId" element={<AddItem user={user} />} />
         </Routes>
       </main>
       <Footer />

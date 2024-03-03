@@ -17,19 +17,20 @@ const Menu = ({ user }) => {
     axioscall()
   }, [])
 
-  // console.log(userRestaurant)
-  // console.log(restaurantDetails)
   return (
-    <div className='Menu-div-s'>
+    <div className="Menu-div-s">
       <h2>{userRestaurant.name} menu</h2>
-      {/* {user && restId === user.restId._id && (
-        <button className='add-category-button'>
+
+      {restaurantDetails._id === user?.restId?._id && (
+        <button className="add-category-button">
           <Link to="/createcategory">Add Category</Link>
         </button>
       )} */}
       {restaurantDetails?.menu?.categoryId?.length > 0 ? (
         <Category categories={restaurantDetails.menu.categoryId} />
-      ) : <p>No categories</p>}
+      ) : (
+        <p>No categories</p>
+      )}
       {/* { restaurantDetails ? (
          (<Category categories={restaurantDetails.menu.categoryId}/>)):(console.log('error')) } */}
     </div>
