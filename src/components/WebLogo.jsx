@@ -4,9 +4,8 @@ const WebLogo = () => {
   return (
     <div>
       <img
-        src="https://i.ibb.co/vBkPjLt/Black-Cyan-Modern-Minimalist-Restaurant-and-Cafe-Logo.jpg"
-        alt="Acme Logo"
-        style={{ maxWidth: '100px' }} // Adjust the size as needed
+        src="/video/Black Cyan Modern Minimalist Restaurant and Cafe Logo-2.jpg"
+        alt=" Logo"
       />
     </div>
   )
