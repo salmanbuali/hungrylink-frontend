@@ -9,14 +9,15 @@ import { CheckSession } from './services/Auth'
 import Register from './pages/Register'
 import SignIn from './pages/SignIn'
 import Menu from './pages/Menu'
+import AddCat from './pages/AddCat'
 
 const App = () => {
+
   const [user, setUser] = useState(null)
 
   const checkToken = async () => {
     const user = await CheckSession()
-    // setUser(user)
-    console.log(user)
+    setUser(user)
   }
 
   useEffect(() => {
@@ -31,6 +32,7 @@ const App = () => {
     setUser(null)
     localStorage.clear()
   }
+
   return (
     <>
       <div>
@@ -39,11 +41,15 @@ const App = () => {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile user={user} />} />
+          <Route
+            path="/profile"
+            element={<Profile user={user} />}
+          />
           <Route path="/orders" element={<Order />} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/menu/:restId" element={<Menu user={user}/>} />
+          <Route path="/menu/:restId" element={<Menu user={user} />} />
+          <Route path="/createcategory" element={<AddCat user={user} />} />
         </Routes>
       </main>
     </>

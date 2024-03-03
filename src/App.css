@@ -170,7 +170,7 @@ i {
   background-color: transparent;
   border: rgba(0, 0, 0, 0.212) solid 3px;
   border-radius: 20px;
-  background: transparent;
+  background-color: white;
   backdrop-filter: blur(20px);
   box-shadow: 0 0 10px rgb(0, 0, 0);
   max-height: 30vh;
@@ -210,7 +210,7 @@ i {
   width: 150px;
 }
 
-.userBackground {
+/* .userBackground {
   background-image: url('https://storage.needpix.com/rsynced_images/green-background-1480062887P1D.jpg');
   background-size: 100vh;
-}
+} */

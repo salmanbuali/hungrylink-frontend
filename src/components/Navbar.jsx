@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+// import { useEffect } from 'react'
 
 const Navbar = ({ user, handleLogOut }) => {
   let userOptions
@@ -11,12 +12,14 @@ const Navbar = ({ user, handleLogOut }) => {
           {user.name}!
         </Link>
         <Link to="/">Home</Link>
+        <Link to="/profile">Profile</Link>
+        {user.type === 'restaurant' && user.restId.menu && (
+          <Link to={`/menu/${user.restId._id}`}> Menu </Link>
+        )}
+        <Link to="/orders">View All Orders</Link>
         <Link onClick={handleLogOut} to="/">
           Sign Out
         </Link>
-        <Link to="/profile">Profile</Link>
-        {(user.type === 'restaurant') && <Link to={`/menu/${user.restId._id}`}> Menu </Link>}
-        <Link to="/orders">View All Orders</Link>
       </nav>
     )
   }

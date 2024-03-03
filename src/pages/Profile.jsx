@@ -1,7 +1,8 @@
 import User from '../components/User'
 import Restaurant from '../components/Restaurant'
 
-const Profile = ({ user }) => {
+const Profile = ({ user}) => {
+
   return (
     <div>
       {user.type === 'customer' ? (
