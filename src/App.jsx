@@ -13,7 +13,6 @@ import AddCat from './pages/AddCat'
 import Footer from './components/Footer'
 import AddItem from './pages/AddItem'
 
-
 const App = () => {
   const [user, setUser] = useState(null)
 
@@ -30,7 +29,7 @@ const App = () => {
   }, [])
 
   const handleLogOut = () => {
-    //Reset all auth related state and clear localStorage
+    // Reset all auth related state and clear localStorage
     setUser(null)
     localStorage.clear()
   }
