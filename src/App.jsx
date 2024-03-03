@@ -10,6 +10,7 @@ import Register from './pages/Register'
 import SignIn from './pages/SignIn'
 import Menu from './pages/Menu'
 import AddCat from './pages/AddCat'
+import AddItem from './pages/AddItem'
 
 const App = () => {
 
@@ -50,6 +51,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/menu/:restId" element={<Menu user={user} />} />
           <Route path="/createcategory" element={<AddCat user={user} />} />
+          <Route path="/createitem" element={<AddItem user={user} />} />
         </Routes>
       </main>
     </>

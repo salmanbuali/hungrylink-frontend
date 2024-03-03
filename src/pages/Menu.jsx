@@ -30,7 +30,6 @@ const Menu = ({ user }) => {
       {restaurantDetails?.menu?.categoryId?.length > 0 ? (
         <Category categories={restaurantDetails.menu.categoryId} />
       ) : <p>No categories</p>}
-
       {/* { restaurantDetails ? (
          (<Category categories={restaurantDetails.menu.categoryId}/>)):(console.log('error')) } */}
     </div>

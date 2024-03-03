@@ -214,3 +214,10 @@ i {
   background-image: url('https://storage.needpix.com/rsynced_images/green-background-1480062887P1D.jpg');
   background-size: 100vh;
 } */
+
+.itemForm {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
