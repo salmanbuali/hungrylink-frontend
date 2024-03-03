@@ -20,13 +20,13 @@ const Menu = ({ user }) => {
   // console.log(userRestaurant)
   // console.log(restaurantDetails)
   return (
-    <div>
+    <div className='Menu-div-s'>
+      <h2>{userRestaurant.name} menu</h2>
       {user && restId === user.restId._id && (
-        <button>
+        <button className='add-category-button'>
           <Link to="/createcategory">Add Category</Link>
         </button>
       )}
-      <h2>{userRestaurant.name} menu</h2>
       {restaurantDetails?.menu?.categoryId?.length > 0 ? (
         <Category categories={restaurantDetails.menu.categoryId} />
       ) : <p>No categories</p>}

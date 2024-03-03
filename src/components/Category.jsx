@@ -6,16 +6,16 @@ const Category = ({ categories }) => {
   // const { restId } = useParams('restId')
   // const [category, setCategory] = useState([])
   return (
-    <div>
+    <div className="categories-div-s">
       <ul>
-        {categories.map((category) => (
+      {categories.map((category) => (    
           <li>
-            <p>{category.name}</p>
+            <div key={category._id}></div>{category.name}
             <button>
               <Link to="/createitem">Add Items</Link>
             </button>
           </li>
-        ))}
+      ))}
       </ul>
     </div>
   )
