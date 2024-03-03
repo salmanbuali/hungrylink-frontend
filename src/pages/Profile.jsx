@@ -1,7 +1,7 @@
 import User from '../components/User'
 import Restaurant from '../components/Restaurant'
 
-const Profile = ({ user, menuExist }) => {
+const Profile = ({ user}) => {
 
   return (
     <div>
@@ -13,7 +13,7 @@ const Profile = ({ user, menuExist }) => {
         </div>
       ) : (
         <div>
-          <Restaurant menuExist={menuExist} user={user} />
+          <Restaurant user={user} />
         </div>
       )}
     </div>

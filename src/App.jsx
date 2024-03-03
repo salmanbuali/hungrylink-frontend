@@ -12,17 +12,12 @@ import Menu from './pages/Menu'
 import AddCat from './pages/AddCat'
 
 const App = () => {
-  const [menuExist, setMenuExist] = useState(false)
 
   const [user, setUser] = useState(null)
 
   const checkToken = async () => {
     const user = await CheckSession()
     setUser(user)
-    if (user.restId.menu !== null) {
-      setMenuExist(true)
-    }
-    console.log(user.restId)
   }
 
   useEffect(() => {
@@ -48,7 +43,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route
             path="/profile"
-            element={<Profile user={user} menuExist={menuExist} />}
+            element={<Profile user={user} />}
           />
           <Route path="/orders" element={<Order />} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
