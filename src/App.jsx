@@ -12,11 +12,12 @@ import Menu from './pages/Menu'
 import AddCat from './pages/AddCat'
 import Footer from './components/Footer'
 import AddItem from './pages/AddItem'
-
+import Cart from './components/Cart'
 
 const App = () => {
   const [user, setUser] = useState(null)
   const [cart, setCart] = useState([])
+  const [r_id, setr_id] = useState(null)
 
   const checkToken = async () => {
     const user = await CheckSession()
@@ -48,9 +49,10 @@ const App = () => {
           <Route path="/orders" element={<Order />} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/menu/:restId" element={<Menu user={user} cart={cart} setCart={setCart} />} />
+          <Route path="/menu/:restId" element={<Menu user={user} cart={cart} setCart={setCart} r_id={r_id} setr_id={setr_id}/>} />
           <Route path="/createcategory" element={<AddCat user={user} />} />
           <Route path="/createitem/:catId" element={<AddItem user={user} />} />
+          <Route path="/cart" element={<Cart user={user}  cart={cart} setCart={setCart} r_id={r_id}/>} />
         </Routes>
       </main>
       <Footer />

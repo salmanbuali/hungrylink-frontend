@@ -288,3 +288,41 @@ i {
 .menuForm button:hover {
   background-color: #3e8e41;
 }
+
+.item-img-s {
+  width: 10vw;
+  height: 10vh;
+  margin: 10px;
+}
+
+.items-div-s {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.item-cart-s {
+  border: 2px solid black;
+  border-radius: 15px;
+  margin: 20px;
+  padding: 10px;
+}
+
+.item-cart-div-s {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.item-cart-div-s input {
+  border: #777;
+  border-radius: 15px;
+  height: 25px;
+}
+
+.cart-item-pic {
+  width: 10vw;
+  height: 15vh;
+}
