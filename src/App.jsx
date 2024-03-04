@@ -12,6 +12,7 @@ import Menu from './pages/Menu'
 import AddCat from './pages/AddCat'
 import Footer from './components/Footer'
 import AddItem from './pages/AddItem'
+import UserUpdate from './pages/UserUpdate'
 
 
 const App = () => {
@@ -51,6 +52,7 @@ const App = () => {
           <Route path="/menu/:restId" element={<Menu user={user} cart={cart} setCart={setCart} />} />
           <Route path="/createcategory" element={<AddCat user={user} />} />
           <Route path="/createitem/:catId" element={<AddItem user={user} />} />
+          <Route path="/updateuser/:userId" element={<UserUpdate user={user} />} />
         </Routes>
       </main>
       <Footer />
