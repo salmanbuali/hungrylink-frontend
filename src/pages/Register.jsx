@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { RegisterUser } from '../services/Auth'
 import { useNavigate, Link } from 'react-router-dom'
+import '../styles/Form.css'
 
 const Register = () => {
   let navigate = useNavigate()
@@ -45,134 +46,100 @@ const Register = () => {
   }
 
   return (
-    <div>
-      <form className="signInForm" onSubmit={handleSubmit}>
-        <div className="formDiv">
-          <div className="inputDiv">
-            <label htmlFor="name">Name: </label>
-            <div className="inputs">
-              <input
-                onChange={handleChange}
-                id="name"
-                type="text"
-                placeholder="John Smith"
-                value={formValues.name}
-                required
-              />
-            </div>
-          </div>
-          <div className="inputDiv">
-            <label htmlFor="email">Email: </label>
-            <div className="inputs">
-              <input
-                onChange={handleChange}
-                id="email"
-                type="email"
-                placeholder="example@example.com"
-                value={formValues.email}
-                required
-              />
-            </div>
-          </div>
-          <div className="inputDiv">
-            <label htmlFor="type">Type: </label>
-            <div className="selectBox">
-              <select
-                id="type"
-                onChange={handleChange}
-                required
-                value={formValues.type}
-              >
-                <option value="" selected disabled>
-                  Select type of user
-                </option>
-                <option value="customer">Customer</option>
-                <option value="restaurant">Restaurant</option>
-              </select>
-            </div>
-          </div>
-          <div className="inputDiv">
-            <label htmlFor="avatar">Avatar/Logo: </label>
-            <div className="inputs">
-              <input
-                onChange={handleChange}
-                id="avatar"
-                type="avatar"
-                placeholder="Enter a valid image url"
-                value={formValues.avatar}
-                required
-              />
-            </div>
-          </div>
-          <div className="inputDiv">
-            <label htmlFor="contact">Contact: </label>
-            <div>
-              <input
-                onChange={handleChange}
-                id="contact"
-                type="contact"
-                placeholder="+973 xxxx xxxx"
-                value={formValues.contact}
-                required
-              />
-            </div>
-          </div>
-          <div className="inputDiv">
-            <label htmlFor="address">Address: </label>
-            <div>
-              <input
-                onChange={handleChange}
-                id="address"
-                type="address"
-                placeholder="Enter your address here"
-                value={formValues.address}
-                required
-              />
-            </div>
-          </div>
-          <div className="inputDiv">
-            <label htmlFor="password">Password</label>
-            <div className="inputs">
-              <input
-                onChange={handleChange}
-                type="password"
-                id="password"
-                value={formValues.password}
-                required
-              />
-            </div>
-          </div>
-          <div className="inputDiv">
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <div className="inputs">
-              <input
-                onChange={handleChange}
-                type="password"
-                id="confirmPassword"
-                value={formValues.confirmPassword}
-                required
-              />
-            </div>
-          </div>
-          <h5>
-            Already have an account? <Link to="/signin">Sign In</Link>
-          </h5>
-          <div className="buttonDiv">
-            <button
-              disabled={
-                !formValues.email ||
-                (!formValues.password &&
-                  formValues.confirmPassword === formValues.password) ||
-                !formValues.confirmPassword ||
-                !formValues.type ||
-                !formValues.address ||
-                !formValues.contact ||
-                !formValues.avatar
-              }
-            >
-              Register
-            </button>
-          </div>
+    <div className="register-container">
+      <video className="background-video" autoPlay loop muted>
+        <source src="public/video/Untitled design.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <form className="register-form" onSubmit={handleSubmit}>
+        <h2 class="animation a1">Sing Up to Start the DELICIOUSNESS!</h2>
+        <h4 class="animation a2">
+          Please fill in all of the information Below
+        </h4>
+        <input
+          type="text"
+          placeholder="Name"
+          id="name"
+          value={formValues.name}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          id="email"
+          value={formValues.email}
+          onChange={handleChange}
+          required
+        />
+        <div className="select-box">
+          <select
+            id="type"
+            onChange={handleChange}
+            required
+            value={formValues.type}
+            className="select-box"
+          >
+            <option value="" disabled>
+              Select type of user
+            </option>
+            <option value="customer">Customer</option>
+            <option value="restaurant">Restaurant</option>
+          </select>
+        </div>
+        <input
+          type="text"
+          placeholder="Avatar/Logo"
+          id="avatar"
+          value={formValues.avatar}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Contact"
+          id="contact"
+          value={formValues.contact}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Address"
+          id="address"
+          value={formValues.address}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          id="password"
+          value={formValues.password}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          id="confirmPassword"
+          value={formValues.confirmPassword}
+          onChange={handleChange}
+          required
+        />
+        <h5>
+          Already have an account? <Link to="/signin">Sign In</Link>
+        </h5>
+        <div className="button-div">
+          <button
+            disabled={
+              !formValues.email ||
+              !formValues.password ||
+              formValues.password !== formValues.confirmPassword
+            }
+          >
+            Register
+          </button>
         </div>
       </form>
     </div>

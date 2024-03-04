@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { SignInUser } from '../services/Auth'
 import { useNavigate, Link } from 'react-router-dom'
+import '../styles/Form.css'
+
 const SignIn = ({ setUser }) => {
   let navigate = useNavigate()
 
@@ -20,47 +22,45 @@ const SignIn = ({ setUser }) => {
   }
 
   return (
-    <div>
-      <form className="signInForm" onSubmit={handleSubmit}>
-        <div className="formDiv">
-          <h1>Sign In</h1>
-          <div className="inputDiv">
-            <label htmlFor="email">Email</label>
-            <div className="inputs">
-              <input
-                onChange={handleChange}
-                name="email"
-                type="email"
-                placeholder="example@example.com"
-                value={formValues.email}
-                required
-              />
-              <i className="bx bx-user-circle"></i>
-            </div>
-          </div>
-          <div className="inputDiv">
-            <label htmlFor="password">Password</label>
-            <div className="inputs">
-              <input
-                onChange={handleChange}
-                type="password"
-                name="password"
-                value={formValues.password}
-                required
-              />
-              <i className="bx bx-lock-alt"></i>
-            </div>
-          </div>
+    <div className="sign-in-container">
+      <video className="background-video" autoPlay loop muted>
+        <source src="public/video/Untitled design.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div className="left">
+        <div className="header">
+          <h2 class="animation a1">Welcome Back</h2>
+          <h4 class="animation a2">
+            Log in to your account using email and password
+          </h4>
+        </div>
+        <form className="sign-in-form" onSubmit={handleSubmit}>
+          <input
+            type="email"
+            placeholder="Email"
+            name="email"
+            value={formValues.email}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={formValues.password}
+            onChange={handleChange}
+            required
+          />
           <h5>
-            Dont have an account? <Link to="/register">Register</Link>
+            Don't have an account? <Link to="/register">Register</Link>
           </h5>
-          <div className="buttonDiv">
+          <div className="button-div">
             <button disabled={!formValues.email || !formValues.password}>
               Sign In
             </button>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   )
 }

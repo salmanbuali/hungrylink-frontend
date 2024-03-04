@@ -15,7 +15,7 @@ function HeroSection() {
       <h1>DELICIOUSNESS AWAITS</h1>
       <p>What are you waiting for?</p>
       <div className="hero-btns">
-        <Link to="src/pages/SignIn.jsx">
+        <Link to="/signin">
           <Button
             className="btns"
             buttonStyle="btn--outline"
@@ -24,7 +24,7 @@ function HeroSection() {
             Log In
           </Button>
         </Link>
-        <Link to="src/pages/Register.jsx">
+        <Link to="/register">
           <Button
             className="btns"
             buttonStyle="btn--primary"
