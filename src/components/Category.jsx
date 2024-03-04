@@ -1,4 +1,7 @@
+// import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Client from '../services/api'
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
@@ -8,6 +11,16 @@ import TabPanel from '@mui/lab/TabPanel';
 
 const Category = ({ categories }) => {
 
+  const [items, setItems] = useState([])
+
+  useEffect(() => {
+    const getItems = async () => {
+      const response = await Client.get(`/rest/cat/items/${categories}`)
+      console.log('where itens', response)
+      setItems(response.data)
+    }
+    getItems()
+  }, [])
 
   const [value, setValue] = React.useState();
 
