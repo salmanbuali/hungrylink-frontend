@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import WebLogo from './WebLogo'
 import '../styles/navBar.css'
 
-const Navbar = ({ user, handleLogOut }) => {
-  const [showDropdown, setShowDropdown] = useState(false)
+const Navbar = ({ user, handleLogOut, cart }) => {
+  const [showDropdown, setShowDropdown] = useState(false) // State for dropdown menu
+
+  useEffect(() => {
+    return
+  }, [cart])
 
   let userOptions
   if (user) {
@@ -15,10 +19,13 @@ const Navbar = ({ user, handleLogOut }) => {
         </div>
         <div className="navBarMiddle">
           <Link to="/profile">Profile</Link>
-          {user.type === 'restaurant' && user.restId.menu && (
+          {user?.type === 'restaurant' && user.restId.menu && (
             <Link to={`/menu/${user.restId._id}`}> Menu </Link>
           )}
           <Link to="/orders">Orders</Link>
+          {user?.type === 'customer' && cart.length > 0 && (
+            <Link to={`/cart`}> Cart </Link>
+          )}
           <Link onClick={handleLogOut} to="/">
             Sign Out
           </Link>

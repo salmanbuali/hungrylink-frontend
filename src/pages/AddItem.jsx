@@ -1,9 +1,14 @@
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Client from '../services/api'
+import { useParams } from 'react-router-dom'
 
 const AddItem = ({ user }) => {
   let navigate = useNavigate()
+
+  const { catId } = useParams('catId')
+
+  console.log(catId)
 
   const [formValues, setFormValues] = useState({
     name: '',
@@ -19,7 +24,7 @@ const AddItem = ({ user }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const item = { user, formValues }
+    const item = { user, formValues, catId }
     console.log(item)
     await Client.post(`/rest/newItem`, item)
     setFormValues({ name: '', price: '', qty: '', desc: '', pic: '' })

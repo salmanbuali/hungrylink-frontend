@@ -24,7 +24,7 @@ const User = ({ user }) => {
             your past orders.
           </p>
           <button>
-            <Link to="">Update your Details</Link>
+            <Link to={`/updateuser/${user._id}`}>Update your Details</Link>
           </button>
         </div>
         <div className="userDetails">

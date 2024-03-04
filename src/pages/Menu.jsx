@@ -3,7 +3,9 @@ import Client from '../services/api'
 import { useEffect, useState } from 'react'
 import Category from '../components/Category'
 
-const Menu = ({ user }) => {
+
+const Menu = ({ user, cart, setCart, r_id, setr_id}) => {
+
   const { restId } = useParams('restId')
   const [userRestaurant, setuserRest] = useState({})
   const [restaurantDetails, setrestaurantDetails] = useState({})
@@ -17,21 +19,20 @@ const Menu = ({ user }) => {
     axioscall()
   }, [])
 
-  // console.log(userRestaurant)
-  // console.log(restaurantDetails)
   return (
-    <div className='Menu-div-s'>
+    <div className="Menu-div-s">
       <h2>{userRestaurant.name} menu</h2>
-      {user && restId === user.restId._id && (
-        <button className='add-category-button'>
+
+      {restaurantDetails._id === user?.restId?._id && (
+        <button className="add-category-button">
           <Link to="/createcategory">Add Category</Link>
         </button>
       )}
       {restaurantDetails?.menu?.categoryId?.length > 0 ? (
-        <Category categories={restaurantDetails.menu.categoryId} />
-      ) : <p>No categories</p>}
-      {/* { restaurantDetails ? (
-         (<Category categories={restaurantDetails.menu.categoryId}/>)):(console.log('error')) } */}
+        <Category categories={restaurantDetails.menu.categoryId} cart={cart} setCart={setCart} setr_id={setr_id} r_id={r_id} rest_id={userRestaurant._id}/>
+      ) : (
+        <p>No categories</p>
+      )}
     </div>
   )
 }
