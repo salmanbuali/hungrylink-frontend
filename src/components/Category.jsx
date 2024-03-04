@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import * as React from 'react'
 import Box from '@mui/material/Box'
@@ -5,13 +6,27 @@ import Tab from '@mui/material/Tab'
 import TabContext from '@mui/lab/TabContext'
 import TabList from '@mui/lab/TabList'
 import TabPanel from '@mui/lab/TabPanel'
+import Client from '../services/api'
 
 const Category = ({ categories, cart, setCart }) => {
-  const [value, setValue] = React.useState()
+ 
+const [value, setValue] = React.useState()
+
+const [items, setItems] = useState([])
+
+  useEffect(() => {
+    const getItems = async () => {
+      const response = await Client.get(`/rest/cat/items/${categories}`)
+      console.log('where itens', response)
+      setItems(response.data)
+    }
+    getItems()
+  }, [])
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
+  
   console.log(categories)
   return (
     <div className="categories-div-s">
