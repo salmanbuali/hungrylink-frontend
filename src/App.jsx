@@ -16,6 +16,7 @@ import AddItem from './pages/AddItem'
 
 const App = () => {
   const [user, setUser] = useState(null)
+  const [cart, setCart] = useState([])
 
   const checkToken = async () => {
     const user = await CheckSession()
@@ -38,7 +39,7 @@ const App = () => {
   return (
     <>
       <div>
-        <Navbar user={user} handleLogOut={handleLogOut} />
+        <Navbar user={user} handleLogOut={handleLogOut} cart={cart}/>
       </div>
       <main>
         <Routes>
@@ -47,7 +48,7 @@ const App = () => {
           <Route path="/orders" element={<Order />} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/menu/:restId" element={<Menu user={user} />} />
+          <Route path="/menu/:restId" element={<Menu user={user} cart={cart} setCart={setCart} />} />
           <Route path="/createcategory" element={<AddCat user={user} />} />
           <Route path="/createitem/:catId" element={<AddItem user={user} />} />
         </Routes>
