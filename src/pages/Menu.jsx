@@ -29,7 +29,7 @@ const Menu = ({ user, cart, setCart, r_id, setr_id}) => {
         </button>
       )}
       {restaurantDetails?.menu?.categoryId?.length > 0 ? (
-        <Category categories={restaurantDetails.menu.categoryId} cart={cart} setCart={setCart} setr_id={setr_id} r_id={r_id} rest_id={userRestaurant._id}/>
+        <Category user={user} categories={restaurantDetails.menu.categoryId} cart={cart} setCart={setCart} setr_id={setr_id} r_id={r_id} rest_id={userRestaurant._id}/>
       ) : (
         <p>No categories</p>
       )}
