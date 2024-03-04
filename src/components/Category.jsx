@@ -59,7 +59,7 @@ const Category = ({ user, categories, cart, setCart, rest_id, r_id, setr_id }) =
                 </TabList>
               </Box>
               <TabPanel value={category.name}>
-                {user?.type === 'restaurant' && (
+                {(user?.type === 'restaurant' && user._id === rest_id) && (
                   <button>
                     <Link to={`/createitem/${category._id}`}>Add Items</Link>
                   </button>
