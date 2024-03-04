@@ -38,19 +38,19 @@ const AddItem = ({ user }) => {
           Item Name:
           <input onChange={handleChange} type="text" id="name" />
         </label>
-        <label htmlFor="name">
+        <label htmlFor="price">
           Price:
           <input onChange={handleChange} type="number" id="price" />
         </label>
-        <label htmlFor="name">
+        <label htmlFor="qty">
           Quantity:
           <input onChange={handleChange} type="number" id="qty" />
         </label>
-        <label htmlFor="name">
+        <label htmlFor="desc">
           Description:
           <input onChange={handleChange} type="text" id="desc" />
         </label>
-        <label htmlFor="name">
+        <label htmlFor="pic">
           Picture:
           <input onChange={handleChange} type="text" id="pic" />
         </label>

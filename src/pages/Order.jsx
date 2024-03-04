@@ -1,7 +1,7 @@
-const Order = () =>{
-  return(
+const Order = () => {
+  return (
     <>
-      <div>Your orders</div>
+      <div className="order-container">Your orders</div>
     </>
   )
 }

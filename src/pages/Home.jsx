@@ -6,7 +6,6 @@ const Home = ({ user }) => {
   return (
     <>
       <HeroSection />
-      <div>Home Page</div>
       {/* <Restaurant /> */}
     </>
   )

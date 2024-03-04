@@ -15,7 +15,6 @@ import AddItem from './pages/AddItem'
 import UserUpdate from './pages/UserUpdate'
 import Cart from './components/Cart'
 
-
 const App = () => {
   const [user, setUser] = useState(null)
   const [cart, setCart] = useState([])
@@ -34,7 +33,7 @@ const App = () => {
   }, [])
 
   const handleLogOut = () => {
-    //Reset all auth related state and clear localStorage
+    // Reset all auth related state and clear localStorage
     setUser(null)
     localStorage.clear()
   }
