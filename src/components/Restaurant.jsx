@@ -1,7 +1,9 @@
+// Restaurant.js
 import { useNavigate } from 'react-router-dom'
 import Client from '../services/api'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import '../styles/Restaurant.css'
 
 const Restaurant = ({ user }) => {
   let navigate = useNavigate()
@@ -48,28 +50,35 @@ const Restaurant = ({ user }) => {
     const getCuis = async () => {
       const response = await Client.get(`/rest/cuis/${user._id}`)
       setCuisines(response.data)
-      console.log(response)
     }
     getCuis()
   }, [])
 
   return (
-    <>
-      <div className="restDiv">
-        <h2>Restaurant Profile</h2>
-        <h4>{user.name}</h4>
+    <div className="Restaurant">
+      <div className="user-card">
         <img src={user.avatar} alt={user.name} />
-        <h4>Account Type: {user.type}</h4>
-        <h6>Contact: {user.contact}</h6>
+        <div className="user-info">
+          <h4>{user.name}</h4>
+          <h4>Account Type: {user.type}</h4>
+          <h6>Contact: {user.contact}</h6>
+          <div>
+            {menus === false ? (
+              <button onClick={createNewMenu}>Create Menu</button>
+            ) : (
+              <Link to={`/menu/${user.restId._id}`}>View Menu</Link>
+            )}
+          </div>
+        </div>
       </div>
-      <div>
+      {/* <div>
         {menus === false ? (
           <button onClick={createNewMenu}>Create Menu</button>
         ) : (
           <Link to={`/menu/${user.restId._id}`}>View Menu</Link>
         )}
-      </div>
-      <div>
+      </div> */}
+      {/* <div>
         {cuisines === false ? (
           <div>
             <label htmlFor="">Chinese</label>
@@ -110,8 +119,8 @@ const Restaurant = ({ user }) => {
             </ul>
           </div>
         )}
-      </div>
-    </>
+      </div> */}
+    </div>
   )
 }
 

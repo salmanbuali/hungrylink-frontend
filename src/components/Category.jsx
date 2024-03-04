@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import * as React from 'react'
 import Box from '@mui/material/Box'
@@ -7,12 +7,13 @@ import TabContext from '@mui/lab/TabContext'
 import TabList from '@mui/lab/TabList'
 import TabPanel from '@mui/lab/TabPanel'
 import Client from '../services/api'
+import '../styles/Cart.css'
+import '../styles/Category.css'
 
 const Category = ({ categories, cart, setCart, rest_id, r_id, setr_id }) => {
- 
-const [value, setValue] = React.useState()
+  const [value, setValue] = React.useState()
 
-const [items, setItems] = useState([])
+  const [items, setItems] = useState([])
 
   useEffect(() => {
     const getItems = async () => {
@@ -29,57 +30,57 @@ const [items, setItems] = useState([])
   const addToCart = (item) => {
     setr_id(rest_id)
     if (cart.indexOf(item) !== -1) {
-      console.log("Object found in the array!");
+      console.log('Object found in the array!')
       return
     }
 
     item.userQty = 1
     setCart([...cart, item])
   }
-  
-  return (
-    <div className="categories-div-s">
-      {/* <ul>
-        {categories.map((category) => (
-          <li>
-            <div key={category._id}></div>
-            {category.name}
-            
-          </li>
-        ))}
-      </ul> */}
 
+  return (
+    <div className="category-container">
       <Box sx={{ width: '100%', typography: 'body1' }}>
         <TabContext value={value}>
           {categories.map((category) => (
-            <>
-              <div key={category._id}></div>
+            <div key={category._id} className="category-wrapper">
               <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <TabList onChange={handleChange}>
-                  <Tab label={category.name} value={category.name} />
+                <TabList onChange={handleChange} className="tab-list">
+                  <Tab
+                    label={category.name}
+                    value={category.name}
+                    className="tab-item"
+                  />
+                  <button className="add-item-button">
+                    <Link
+                      to={`/createitem/${category._id}`}
+                      className="add-item-link"
+                    >
+                      +
+                    </Link>
+                  </button>
                 </TabList>
               </Box>
-              <TabPanel value={category.name}>
-                <button>
-                  <Link to={`/createitem/${category._id}`}>Add Items</Link>
-                </button>
-                <br />
-                <div className='items-div-s'>
+              <TabPanel value={category.name} className="tab-panel">
+                <div className="items-container">
                   {category.items.map((item) => (
-                    item.qty > 0 && (
-                    <div key={item._id}>
-                    <img src={item.pic} alt="item pic" className='item-img-s' />
-                    <p>
-                      <strong>{item.name}</strong>
-                      <br /> BHD {item.price} - {item.desc}
-                    </p>
-                      <button onClick={() => addToCart(item)} >Add to Cart</button>
+                    <div key={item._id} className="item-wrapper">
+                      <img src={item.pic} alt="item pic" className="item-img" />
+                      <p className="item-description">
+                        <strong>{item.name}</strong>
+                        <br /> BHD {item.price} - {item.desc}
+                      </p>
+                      <button
+                        onClick={() => addToCart(item)}
+                        className="add-to-cart-button"
+                      >
+                        Add to Cart
+                      </button>
                     </div>
-                    )
-                   ))}
+                  ))}
                 </div>
               </TabPanel>
-            </>
+            </div>
           ))}
         </TabContext>
       </Box>
