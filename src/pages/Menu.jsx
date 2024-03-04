@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import Category from '../components/Category'
 
 
-const Menu = ({ user, cart, setCart }) => {
+const Menu = ({ user, cart, setCart, r_id, setr_id}) => {
 
   const { restId } = useParams('restId')
   const [userRestaurant, setuserRest] = useState({})
@@ -29,7 +29,7 @@ const Menu = ({ user, cart, setCart }) => {
         </button>
       )}
       {restaurantDetails?.menu?.categoryId?.length > 0 ? (
-        <Category categories={restaurantDetails.menu.categoryId} cart={cart} setCart={setCart} />
+        <Category categories={restaurantDetails.menu.categoryId} cart={cart} setCart={setCart} setr_id={setr_id} r_id={r_id} rest_id={userRestaurant._id}/>
       ) : (
         <p>No categories</p>
       )}
