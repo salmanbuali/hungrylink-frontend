@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom'
 
-
-const Restaurant = () => {
-
+const Restaurant = ({ rest }) => {
+  console.log(rest)
   return (
-    <>
-      <Link to={""}>
-        <div>Restaurant cards</div>
-      </Link>
-    </>
+    <div>
+      <div className="landingDivList">
+        <Link to={`/menu/${rest._id}`}>
+          <img src={rest.avatar} alt={rest.name} />
+        </Link>
+        <h4>{rest.name}</h4>
+      </div>
+    </div>
   )
 }
 

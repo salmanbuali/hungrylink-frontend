@@ -42,7 +42,7 @@ const App = () => {
   return (
     <>
       <div>
-        <Navbar user={user} handleLogOut={handleLogOut} cart={cart}/>
+        <Navbar user={user} handleLogOut={handleLogOut} cart={cart} />
       </div>
       <main>
         <Routes>
@@ -51,15 +51,37 @@ const App = () => {
           <Route path="/orders" element={<Order />} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/menu/:restId" element={<Menu user={user} cart={cart} setCart={setCart} r_id={r_id} setr_id={setr_id}/>} />
+          <Route
+            path="/menu/:restId"
+            element={
+              <Menu
+                user={user}
+                cart={cart}
+                setCart={setCart}
+                r_id={r_id}
+                setr_id={setr_id}
+              />
+            }
+          />
           <Route path="/createcategory" element={<AddCat user={user} />} />
           <Route path="/createitem/:catId" element={<AddItem user={user} />} />
-          <Route path="/updateuser/:userId" element={<UserUpdate user={user} />} />
-          <Route path="/cart" element={<Cart user={user}  cart={cart} setCart={setCart} r_id={r_id}/>} />
-          <Route path="/landing" element={<Landing user={user} cart={cart} />} />
+          <Route
+            path="/updateuser/:userId"
+            element={<UserUpdate user={user} />}
+          />
+          <Route
+            path="/cart"
+            element={
+              <Cart user={user} cart={cart} setCart={setCart} r_id={r_id} />
+            }
+          />
+          <Route
+            path="/landing"
+            element={<Landing user={user} cart={cart} />}
+          />
         </Routes>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }

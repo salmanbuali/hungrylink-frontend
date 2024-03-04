@@ -77,7 +77,6 @@ const Restaurant = ({ user }) => {
               id="chinese"
               value="chinese"
               type="checkbox"
-              number="0"
               onChange={handleChange}
             />
             <label htmlFor="">American</label>
@@ -85,7 +84,6 @@ const Restaurant = ({ user }) => {
               id="american"
               value="american"
               type="checkbox"
-              number="1"
               onChange={handleChange}
             />
             <label htmlFor="">Korean</label>
@@ -93,7 +91,27 @@ const Restaurant = ({ user }) => {
               id="korean"
               value="korean"
               type="checkbox"
-              number="2"
+              onChange={handleChange}
+            />
+            <label htmlFor="">Italian</label>
+            <input
+              id="italian"
+              value="italian"
+              type="checkbox"
+              onChange={handleChange}
+            />
+            <label htmlFor="">Arabic</label>
+            <input
+              id="arabic"
+              value="arabic"
+              type="checkbox"
+              onChange={handleChange}
+            />
+            <label htmlFor="">Fast Food</label>
+            <input
+              id="fastfood"
+              value="fastfood"
+              type="checkbox"
               onChange={handleChange}
             />
             <div>
