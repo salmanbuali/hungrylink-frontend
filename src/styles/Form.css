@@ -1,138 +1,202 @@
+/* Form.css */
 .register-container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  height: 90vh;
+  width: 30%;
 }
 
-.video-bg {
+.register-form {
+  background-color: white;
+  padding: 20px;
+  width: 400px;
+  max-width: 90%;
+}
+.background-video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/video/Food Delivery Advertisement (Ken).mp4');
-  background-size: cover;
-  filter: blur(5px); /* Add a blur effect to the background */
+  object-fit: initial;
+  z-index: -1;
 }
 
-.form-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  padding: 20px;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.8
-  ); /* Add a semi-transparent background for the form */
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-.signInForm {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  padding: 20px;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.8
-  ); /* Add a semi-transparent background for the form */
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-.signInForm {
-  font-family: 'Lucida Sans';
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  flex-direction: column;
-  background-color: aliceblue;
-  /* filter: brightness(1.45); */
-}
-
-.buttonDiv {
-  text-align: center;
-}
-
-.signInForm h1 {
-  text-align: center;
-  color: white(0, 0, 0);
-  font-size: 30px;
-  font-family: 'Lucida Sans';
-  text-shadow: 0 0 2px black;
-}
-
-.signInForm input {
-  padding: 5px;
+.register-form h1 {
   margin-bottom: 20px;
-  margin-right: 15px;
-  border-radius: 10px;
-  border: 2px solid rgba(128, 128, 128, 0.315);
-  font-size: 16px;
+  text-align: center;
 }
 
-.signInForm button {
-  margin-top: 15px;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: rgb(10, 87, 43);
-  border: black 1px solid;
-  box-shadow: 0px 0px 10px black;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  padding: 10px 50px;
-  transition: background-color 0.4s ease;
-}
-
-.signInForm button:hover {
-  background-color: rgb(11, 184, 86);
-}
-
-.signInForm button:disabled {
-  box-shadow: 0px 0px 0px;
-  background-color: gray;
-}
-
-.signInForm h5 {
-  font-weight: normal;
+.register-form input {
+  padding: 10px 15px;
+  width: 90%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
   font-size: 14px;
-  margin-right: 0;
+  margin-bottom: 15px;
 }
 
-.formDiv {
-  margin: 50px 0px;
-  padding: 20px 50px;
-  border: rgba(0, 0, 0, 0.212) solid 2px;
-  border-radius: 20px;
-  background: transparent;
-  backdrop-filter: blur(20px) contrast(1.1);
-  box-shadow: 0 0 10px rgb(0, 0, 0);
+.select-box select {
+  padding: 10px 15px;
+  width: 97%;
+  font-size: 14px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.signInForm a {
-  padding-left: 5px;
+.register-form input:focus {
+  border-color: #333;
+}
+.register-form h2 {
+  color: #238636;
+  font-size: xx-large;
+}
+.register-form h4 {
+  color: rgba(0, 0, 0, 0.4);
+  font-size: small;
+}
+.register-form h5 {
+  text-align: center;
+  margin-top: 10px;
+  font-size: medium;
 }
 
-.signInForm select {
-  padding: 5px;
-  margin-bottom: 20px;
-  margin-right: 15px;
-  border-radius: 10px;
-  border: 2px solid rgba(128, 128, 128, 0.315);
-  font-size: 16px;
+.register-form h5 a {
+  color: #238636;
+  text-decoration: underline;
+}
+
+.register-form .button-div {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.register-form button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.register-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.register-form button:hover {
+  background-color: #238636;
+}
+
+/* Form.css */
+.sign-in-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: white;
-  color: black;
-  width: 94%;
+  height: 90vh;
+  width: 30%;
+}
+
+.sign-in-form {
+  background-color: white;
+  padding: 20px;
+  width: 400px;
+  max-width: 90%;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.sign-in-form input {
+  padding: 10px 15px;
+  width: 90%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.sign-in-form input:focus {
+  border-color: #333;
+}
+
+.sign-in-form h5 {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.sign-in-form h5 a {
+  color: #238636;
+  text-decoration: underline;
+}
+
+.sign-in-form .button-div {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.sign-in-form button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.sign-in-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.sign-in-form button:hover {
+  background-color: #238636;
+}
+.animation {
+  animation-name: move;
+  animation-duration: 0.4s;
+  animation-fill-mode: both;
+  animation-delay: 2s;
+}
+
+.animation-a1 {
+  animation-delay: 2s;
+}
+
+.animination-a2 {
+  animation-delay: 2.1s;
+}
+
+.header > h2 {
+  margin: 0;
+  color: #238636;
+  margin-left: 5%;
+  font-weight: bolder;
+  font-size: xx-large;
+}
+
+.header > h4 {
+  margin-top: 10px;
+  font-weight: normal;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.4);
+  margin-left: 5%;
 }

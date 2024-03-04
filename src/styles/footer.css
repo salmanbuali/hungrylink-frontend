@@ -1,6 +1,7 @@
 .footer-container {
   background-color: #238636;
   display: flex;
+
   justify-content: space-around;
   font-size: large;
 }
