@@ -14,6 +14,7 @@ import Footer from './components/Footer'
 import AddItem from './pages/AddItem'
 import UserUpdate from './pages/UserUpdate'
 import Cart from './components/Cart'
+import Landing from './pages/Landing'
 
 
 const App = () => {
@@ -56,7 +57,7 @@ const App = () => {
           <Route path="/createitem/:catId" element={<AddItem user={user} />} />
           <Route path="/updateuser/:userId" element={<UserUpdate user={user} />} />
           <Route path="/cart" element={<Cart user={user}  cart={cart} setCart={setCart} r_id={r_id}/>} />
-
+          <Route path="/landing" element={<Landing user={user} cart={cart} />} />
         </Routes>
       </main>
       <Footer />
