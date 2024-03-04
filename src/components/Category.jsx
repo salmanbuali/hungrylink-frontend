@@ -8,7 +8,7 @@ import TabList from '@mui/lab/TabList'
 import TabPanel from '@mui/lab/TabPanel'
 import Client from '../services/api'
 
-const Category = ({ categories, cart, setCart }) => {
+const Category = ({ categories, cart, setCart, rest_id, r_id, setr_id }) => {
  
 const [value, setValue] = React.useState()
 
@@ -17,7 +17,6 @@ const [items, setItems] = useState([])
   useEffect(() => {
     const getItems = async () => {
       const response = await Client.get(`/rest/cat/items/${categories}`)
-      console.log('where itens', response)
       setItems(response.data)
     }
     getItems()
@@ -26,8 +25,18 @@ const [items, setItems] = useState([])
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
+
+  const addToCart = (item) => {
+    setr_id(rest_id)
+    if (cart.indexOf(item) !== -1) {
+      console.log("Object found in the array!");
+      return
+    }
+
+    item.userQty = 1
+    setCart([...cart, item])
+  }
   
-  console.log(categories)
   return (
     <div className="categories-div-s">
       {/* <ul>
@@ -55,17 +64,20 @@ const [items, setItems] = useState([])
                   <Link to={`/createitem/${category._id}`}>Add Items</Link>
                 </button>
                 <br />
-                {category.items.map((item) => (
-                  <div>
-                    {console.log(category.items)}
-                    <div key={item._id}></div>
-                    <img src={item.pic} alt="item pic" />
+                <div className='items-div-s'>
+                  {category.items.map((item) => (
+                    item.qty > 0 && (
+                    <div key={item._id}>
+                    <img src={item.pic} alt="item pic" className='item-img-s' />
                     <p>
                       <strong>{item.name}</strong>
                       <br /> BHD {item.price} - {item.desc}
                     </p>
-                  </div>
-                ))}
+                      <button onClick={() => addToCart(item)} >Add to Cart</button>
+                    </div>
+                    )
+                   ))}
+                </div>
               </TabPanel>
             </>
           ))}
