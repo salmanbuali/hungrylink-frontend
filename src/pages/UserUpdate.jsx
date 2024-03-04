@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import Client from '../services/api'
 
-const userUpdate = ({ user }) => {
+const UserUpdate = ({ user }) => {
   let navigate = useNavigate()
 
   const [formValues, setFormValues] = useState({
@@ -15,12 +15,12 @@ const userUpdate = ({ user }) => {
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.id]: e.target.value })
   }
-  
+
   // await Client.post('/auth/register', data)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await Client.post({
+    await Client.put(`/auth/userupdate/${user._id}`, {
       name: formValues.name,
       avatar: formValues.avatar,
       contact: formValues.contact,
@@ -79,4 +79,4 @@ const userUpdate = ({ user }) => {
   )
 }
 
-export default userUpdate
+export default UserUpdate

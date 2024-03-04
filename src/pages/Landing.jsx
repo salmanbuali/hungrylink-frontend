@@ -16,7 +16,7 @@ const Landing = ({ user }) => {
   return (
     <>
       <div>
-        <h2>landing</h2>
+        <h2>Restaurants</h2>
         <div className="landingDiv">
           {restDetails.length > 0 &&
             restDetails.map((rest) => (
