@@ -3,6 +3,7 @@ import Client from '../services/api'
 import { useEffect, useState } from 'react'
 import Category from '../components/Category'
 
+
 const Menu = ({ user }) => {
   const { restId } = useParams('restId')
   const [userRestaurant, setuserRest] = useState({})
@@ -27,7 +28,7 @@ const Menu = ({ user }) => {
         </button>
       )}
       {restaurantDetails?.menu?.categoryId?.length > 0 ? (
-        <Category categories={restaurantDetails.menu.categoryId} />
+        <Category categories={restaurantDetails.menu.categoryId}/>
       ) : (
         <p>No categories</p>
       )}
