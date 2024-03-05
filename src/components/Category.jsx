@@ -10,7 +10,15 @@ import Client from '../services/api'
 import '../styles/Cart.css'
 import '../styles/Category.css'
 
-const Category = ({ categories, cart, setCart, rest_id, r_id, setr_id }) => {
+const Category = ({
+  categories,
+  cart,
+  setCart,
+  rest_id,
+  r_id,
+  setr_id,
+  toggleDelete
+}) => {
   const [value, setValue] = React.useState()
 
   const [items, setItems] = useState([])
@@ -38,6 +46,21 @@ const Category = ({ categories, cart, setCart, rest_id, r_id, setr_id }) => {
     setCart([...cart, item])
   }
 
+  const handleDelete = async (categoryId) => {
+    const response = await Client.delete('/rest/deleteCat', {
+      data: {
+        catId: categoryId
+      }
+    })
+    toggleDelete((prev) => {
+      return !prev
+    })
+    console.log(categoryId)
+  }
+  // const getItems = async () => {
+  //   const response = await Client.get(`/rest/cat/items/${categories}`)
+  //   setItems(response.data)
+  // }
   return (
     <div className="category-container">
       <Box sx={{ width: '100%', typography: 'body1' }}>
@@ -58,6 +81,14 @@ const Category = ({ categories, cart, setCart, rest_id, r_id, setr_id }) => {
                     >
                       Add Item
                     </Link>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      handleDelete(category._id)
+                    }}
+                  >
+                    Delete
                   </button>
                 </TabList>
               </Box>
