@@ -18,6 +18,7 @@ const Navbar = ({ user, handleLogOut, cart }) => {
           <WebLogo className="navBarLogo" />
         </div>
         <div className="navBarMiddle">
+          <Link to="/landing">Home</Link>
           <Link to="/profile">Profile</Link>
           {user?.type === 'restaurant' && user.restId.menu && (
             <Link to={`/menu/${user.restId._id}`}> Menu </Link>
@@ -51,7 +52,8 @@ const Navbar = ({ user, handleLogOut, cart }) => {
         <WebLogo className="navBarLogo" />
       </div>
       <div className="navBarMiddle">
-        <Link to="/">Home</Link>
+        <Link to="/">HungryLink</Link>
+        <Link to="/landing">Home</Link>
         <Link to="/register">Register</Link>
         <Link to="/signin">Sign In</Link>
       </div>

@@ -14,6 +14,7 @@ import Footer from './components/Footer'
 import AddItem from './pages/AddItem'
 import UserUpdate from './pages/UserUpdate'
 import Cart from './components/Cart'
+import Landing from './pages/Landing'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -41,24 +42,46 @@ const App = () => {
   return (
     <>
       <div>
-        <Navbar user={user} handleLogOut={handleLogOut} cart={cart}/>
+        <Navbar user={user} handleLogOut={handleLogOut} cart={cart} />
       </div>
       <main>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home user={user} />} />
           <Route path="/profile" element={<Profile user={user} />} />
-          <Route path="/orders" element={<Order />} />
+          <Route path="/orders" element={<Order user={user} />} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/menu/:restId" element={<Menu user={user} cart={cart} setCart={setCart} r_id={r_id} setr_id={setr_id}/>} />
+          <Route
+            path="/menu/:restId"
+            element={
+              <Menu
+                user={user}
+                cart={cart}
+                setCart={setCart}
+                r_id={r_id}
+                setr_id={setr_id}
+              />
+            }
+          />
           <Route path="/createcategory" element={<AddCat user={user} />} />
           <Route path="/createitem/:catId" element={<AddItem user={user} />} />
-          <Route path="/updateuser/:userId" element={<UserUpdate user={user} />} />
-          <Route path="/cart" element={<Cart user={user}  cart={cart} setCart={setCart} r_id={r_id}/>} />
-
+          <Route
+            path="/updateuser/:userId"
+            element={<UserUpdate user={user} />}
+          />
+          <Route
+            path="/cart"
+            element={
+              <Cart user={user} cart={cart} setCart={setCart} r_id={r_id} />
+            }
+          />
+          <Route
+            path="/landing"
+            element={<Landing user={user} cart={cart} />}
+          />
         </Routes>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }

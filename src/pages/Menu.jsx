@@ -30,6 +30,7 @@ const Menu = ({ user, cart, setCart, r_id, setr_id }) => {
         )}
       </div>
 
+
       <div className="category-container">
         {restaurantDetails?.menu?.categoryId?.length > 0 ? (
           <Category
@@ -45,7 +46,6 @@ const Menu = ({ user, cart, setCart, r_id, setr_id }) => {
           <p>No categories</p>
         )}
       </div>
-    </div>
   )
 }
 
