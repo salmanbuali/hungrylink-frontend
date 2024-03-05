@@ -104,6 +104,7 @@ const Category = ({
                       </Link>
                     </button>
                   )}
+                  {user?.type === 'restaurant' && user._id === rest_id && (
                   <button
                     type="button"
                     onClick={() => {
@@ -111,7 +112,7 @@ const Category = ({
                     }}
                   >
                     Delete
-                  </button>
+                  </button> )}
                 </TabList>
               </Box>
 
