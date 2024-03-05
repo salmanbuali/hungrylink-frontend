@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Client from '../services/api'
+import '../styles/AddCat.css'
 
 const AddCat = ({ user }) => {
   let navigate = useNavigate()
@@ -13,7 +14,7 @@ const AddCat = ({ user }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if(formValues.name === ""){
+    if (formValues.name === '') {
       return
     }
     const cat = { user, categoryName: formValues.name }

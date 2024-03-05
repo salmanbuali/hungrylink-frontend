@@ -1,0 +1,33 @@
+/* AddCat.css */
+
+.menuForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.menuForm label {
+  margin-bottom: 10px;
+}
+
+.menuForm input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: 200px;
+}
+
+.menuForm button {
+  padding: 8px 15px;
+  background-color: #5e3193;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.menuForm button:hover {
+  background-color: #c52564;
+}
