@@ -13,6 +13,8 @@ const Category = ({ user, categories, cart, setCart, rest_id, r_id, setr_id }) =
 
   const [items, setItems] = useState([])
 
+  const [newQty, setNewQty] = useState(0)
+
   useEffect(() => {
     const getItems = async () => {
       const response = await Client.get(`/rest/cat/items/${categories}`)
@@ -25,28 +27,35 @@ const Category = ({ user, categories, cart, setCart, rest_id, r_id, setr_id }) =
     setValue(newValue)
   }
 
+  const handleChangeOfQty = (e) => {
+    setNewQty( e.target.value )
+    console.log(newQty)
+  }
+
   const addToCart = (item) => {
     setr_id(rest_id)
     if (cart.indexOf(item) !== -1) {
       console.log('Object found in the array!')
       return
     }
-
     item.userQty = 1
     setCart([...cart, item])
   }
 
+  const updateItem = async (e, itemId) => {
+    e.preventDefault()
+    console.log(itemId)
+    const request = {
+      _id: itemId,
+      newQty: newQty
+    }
+    console.log(request)
+    const response = await Client.put(`/rest/updateItem`, request)
+    console.log(response)
+  }
+
   return (
     <div className="categories-div-s">
-      {/* <ul>
-        {categories.map((category) => (
-          <li>
-            <div key={category._id}></div>
-            {category.name}
-            
-          </li>
-        ))}
-      </ul> */}
 
       <Box sx={{ width: '100%', typography: 'body1' }}>
         <TabContext value={value}>
@@ -79,9 +88,18 @@ const Category = ({ user, categories, cart, setCart, rest_id, r_id, setr_id }) =
                             <strong>{item.name}</strong>
                             <br /> BHD {item.price} - {item.desc}
                           </p>
-                          <button onClick={() => addToCart(item)}>
+
+                          {(user?._id === rest_id) && (<div>
+                            <form>
+                              <label htmlFor="newQty">New Quantity</label>
+                              <input type="number" id='newQty' min='1' max='100' onChange={handleChangeOfQty} />
+                              <button onClick={(e) => updateItem(e, item._id)}>Update</button>
+                            </form> 
+                            </div> )}
+
+                          {(user?.type != "restaurant") && <button onClick={() => addToCart(item)}>
                             Add to Cart
-                          </button>
+                          </button>}
                         </div>
                       )
                   )}
