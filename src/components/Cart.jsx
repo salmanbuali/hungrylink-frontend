@@ -9,16 +9,17 @@ const Cart = ({ user, cart, setCart, r_id }) => {
   const buy = async () => {
     const request = { cart, user, r_id }
     console.log(request)
-    await Client.post('/rest/newOrder', request)
     setCart([])
     navigate('/orders')
+    await Client.post('/rest/newOrder', request)
+  
   }
 
   const handleClick = (id, qty) => {
     qty = parseInt(qty)
     const arrayCart = [...cart]
     const itemFound = arrayCart.find((item) => item._id === id)
-    if (qty > itemFound.qty) {
+    if (qty > itemFound.qty || qty === 0) {
       return
     }
     itemFound.userQty = qty
@@ -49,7 +50,7 @@ const Cart = ({ user, cart, setCart, r_id }) => {
           </div>
         ))}
       </div>
-      <button onClick={()=>buy}>Order</button>
+      <button onClick={()=>{buy()}}>Order</button>
     </>
   )
 }
