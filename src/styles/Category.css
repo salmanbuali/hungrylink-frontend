@@ -7,8 +7,8 @@
 }
 
 .tab-item {
-  color: #000000;
-  font-size: x-large;
+  color: #ffffff;
+  font-size: x-large !important;
 }
 
 .add-item-button {
@@ -18,13 +18,12 @@
   padding: 8px 16px;
   border-radius: 5px;
   cursor: pointer;
-  text-decoration: none !important; /* Use !important to ensure it's applied */
-  font-size: xx-large;
+  text-decoration: none !important;
 }
 
 .add-item-button:hover {
   background-color: #238636;
-  text-decoration: none !important; /* Remove text decoration on hover */
+  text-decoration: none !important;
 
   .MuiTab-root.Mui-selected {
     color: #238636; /* Change text color when selected */
@@ -32,5 +31,6 @@
 
   .MuiTab-root.Mui-selected .MuiTab-wrapper {
     color: #238636;
+    font-size: xx-large;
   }
 }

@@ -56,7 +56,7 @@ const Category = ({ categories, cart, setCart, rest_id, r_id, setr_id }) => {
                       to={`/createitem/${category._id}`}
                       className="add-item-link"
                     >
-                      +
+                      Add Item
                     </Link>
                   </button>
                 </TabList>

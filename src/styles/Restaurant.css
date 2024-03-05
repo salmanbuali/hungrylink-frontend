@@ -1,5 +1,3 @@
-/* Restaurant.css */
-
 .Restaurant {
   font-family: 'Poppins', sans-serif;
   height: 100vh;
@@ -20,8 +18,8 @@
 }
 
 .Restaurant .user-card img {
-  width: 200px; /* Doubled size */
-  height: 200px; /* Doubled size */
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   margin-right: 20px;
 }
@@ -34,4 +32,3 @@
 .Restaurant .user-card h6 {
   margin: 5px 0;
 }
-/* Add this CSS to your existing styles */

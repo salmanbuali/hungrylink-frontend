@@ -71,14 +71,14 @@ const Restaurant = ({ user }) => {
           </div>
         </div>
       </div>
-      {/* <div>
+      <div>
         {menus === false ? (
           <button onClick={createNewMenu}>Create Menu</button>
         ) : (
           <Link to={`/menu/${user.restId._id}`}>View Menu</Link>
         )}
-      </div> */}
-      {/* <div>
+      </div>
+      <div>
         {cuisines === false ? (
           <div>
             <label htmlFor="">Chinese</label>
@@ -119,7 +119,7 @@ const Restaurant = ({ user }) => {
             </ul>
           </div>
         )}
-      </div> */}
+      </div>
     </div>
   )
 }
