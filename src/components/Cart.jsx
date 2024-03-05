@@ -49,7 +49,7 @@ const Cart = ({ user, cart, setCart, r_id }) => {
           </div>
         ))}
       </div>
-      <button onClick={buy}>Order</button>
+      <button onClick={()=>buy}>Order</button>
     </>
   )
 }
