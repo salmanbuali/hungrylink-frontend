@@ -41,6 +41,7 @@ const Menu = ({ user, cart, setCart, r_id, setr_id }) => {
             r_id={r_id}
             rest_id={userRestaurant._id}
             toggleDelete={toggleDelete}
+            user={user}
           />
         ) : (
           <p>No categories</p>

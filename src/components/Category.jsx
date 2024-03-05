@@ -10,7 +10,6 @@ import Client from '../services/api'
 import '../styles/Cart.css'
 import '../styles/Category.css'
 
-
 const Category = ({
   categories,
   cart,
@@ -27,21 +26,21 @@ const Category = ({
 
   const [newQty, setNewQty] = useState(0)
 
-
   useEffect(() => {
     const getItems = async () => {
       const response = await Client.get(`/rest/cat/items/${categories}`)
       setItems(response.data)
     }
+    console.log(user)
     getItems()
-  }, [])
+  }, [user])
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
 
   const handleChangeOfQty = (e) => {
-    setNewQty( e.target.value )
+    setNewQty(e.target.value)
     console.log(newQty)
   }
 
@@ -66,7 +65,6 @@ const Category = ({
     const response = await Client.put(`/rest/updateItem`, request)
     console.log(response)
   }
-
 
   const handleDelete = async (categoryId) => {
     const response = await Client.delete('/rest/deleteCat', {
@@ -96,15 +94,15 @@ const Category = ({
                     value={category.name}
                     className="tab-item"
                   />
-                  {(user?.type === 'restaurant' && user._id === rest_id) && (
-                  <button className="add-item-button">
-                    <Link
-                      to={`/createitem/${category._id}`}
-                      className="add-item-link"
-                    >
-                      Add Item
-                    </Link>
-                  </button>
+                  {user?.type === 'restaurant' && user._id === rest_id && (
+                    <button className="add-item-button">
+                      <Link
+                        to={`/createitem/${category._id}`}
+                        className="add-item-link"
+                      >
+                        Add Item
+                      </Link>
+                    </button>
                   )}
                   <button
                     type="button"
@@ -118,7 +116,6 @@ const Category = ({
               </Box>
 
               <TabPanel value={category.name} className="tab-panel">
-            
                 <div className="items-container">
                   {category.items.map(
                     (item) =>
@@ -134,21 +131,34 @@ const Category = ({
                             <br /> BHD {item.price} - {item.desc}
                           </p>
 
-                          {(user?._id === rest_id) && (<div>
-                            <form>
-                              <label htmlFor="newQty">New Quantity</label>
-                              <input type="number" id='newQty' min='1' max='100' onChange={handleChangeOfQty} />
-                              <button onClick={(e) => updateItem(e, item._id)}>Update</button>
-                            </form> 
-                            </div> )}
+                          {user?._id === rest_id && (
+                            <div>
+                              <form>
+                                <label htmlFor="newQty">New Quantity</label>
+                                <input
+                                  type="number"
+                                  id="newQty"
+                                  min="1"
+                                  max="100"
+                                  onChange={handleChangeOfQty}
+                                />
+                                <button
+                                  onClick={(e) => updateItem(e, item._id)}
+                                >
+                                  Update
+                                </button>
+                              </form>
+                            </div>
+                          )}
 
-                          {(user && user?.type != "restaurant") && <button onClick={() => addToCart(item)}>
-                            Add to Cart
-                          </button>}
+                          {user && user.type !== 'restaurant' && (
+                            <button onClick={() => addToCart(item)}>
+                              Add to Cart
+                            </button>
+                          )}
                         </div>
                       )
                   )}
-
                 </div>
               </TabPanel>
             </div>
