@@ -326,11 +326,15 @@ i {
   border-radius: 20px;
   margin: 10px;
   width: 200px;
-  height: 200px;
+  height: 250px;
   text-align: center;
   padding-top: 30px;
 }
 
 .landingDiv img {
   width: 100px;
+}
+
+.ordersHeader {
+  text-align: center;
 }

@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 
 const User = ({ user }) => {
-  console.log(user)
   // const [user, setUsers] = useState({})
 
   // useEffect(() => {
