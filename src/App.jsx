@@ -1,4 +1,5 @@
 import './App.css'
+import Client from './services/api'
 import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
@@ -34,7 +35,7 @@ const App = () => {
   }, [])
 
   const handleLogOut = () => {
-    // Reset all auth related state and clear localStorage
+    // We log out and stuff from here
     setUser(null)
     localStorage.clear()
   }
@@ -47,7 +48,10 @@ const App = () => {
       <main>
         <Routes>
           <Route path="/" element={<Home user={user} />} />
-          <Route path="/profile" element={<Profile user={user} />} />
+          <Route
+            path="/profile"
+            element={<Profile user={user} />}
+          />
           <Route path="/orders" element={<Order user={user} />} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
@@ -67,7 +71,7 @@ const App = () => {
           <Route path="/createitem/:catId" element={<AddItem user={user} />} />
           <Route
             path="/updateuser/:userId"
-            element={<UserUpdate user={user} />}
+            element={<UserUpdate setUser={setUser} user={user} />}
           />
           <Route
             path="/cart"
