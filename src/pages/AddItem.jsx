@@ -1,7 +1,9 @@
+// AddItem.jsx
 import { useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Client from '../services/api'
 import { useParams } from 'react-router-dom'
+import '../styles/AddItem.css'
 
 const AddItem = ({ user }) => {
   let navigate = useNavigate()

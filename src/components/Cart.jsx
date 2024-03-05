@@ -1,5 +1,6 @@
 import Client from '../services/api'
 import { useNavigate } from 'react-router-dom'
+import '../styles/Cart.css'
 
 const Cart = ({ user, cart, setCart, r_id }) => {
 
@@ -7,7 +8,7 @@ const Cart = ({ user, cart, setCart, r_id }) => {
 
   const buy = async () => {
     const request = { cart, user, r_id }
-    console.log( request )
+    console.log(request)
     await Client.post('/rest/newOrder', request)
     setCart([])
     navigate('/orders')

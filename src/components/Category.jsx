@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import * as React from 'react'
 import Box from '@mui/material/Box'
@@ -7,13 +7,26 @@ import TabContext from '@mui/lab/TabContext'
 import TabList from '@mui/lab/TabList'
 import TabPanel from '@mui/lab/TabPanel'
 import Client from '../services/api'
+import '../styles/Cart.css'
+import '../styles/Category.css'
 
-const Category = ({ user, categories, cart, setCart, rest_id, r_id, setr_id }) => {
+
+const Category = ({
+  categories,
+  cart,
+  setCart,
+  rest_id,
+  r_id,
+  setr_id,
+  toggleDelete,
+  user
+}) => {
   const [value, setValue] = React.useState()
 
   const [items, setItems] = useState([])
 
   const [newQty, setNewQty] = useState(0)
+
 
   useEffect(() => {
     const getItems = async () => {
@@ -54,27 +67,59 @@ const Category = ({ user, categories, cart, setCart, rest_id, r_id, setr_id }) =
     console.log(response)
   }
 
-  return (
-    <div className="categories-div-s">
 
+  const handleDelete = async (categoryId) => {
+    const response = await Client.delete('/rest/deleteCat', {
+      data: {
+        catId: categoryId
+      }
+    })
+    toggleDelete((prev) => {
+      return !prev
+    })
+    console.log(categoryId)
+  }
+  // const getItems = async () => {
+  //   const response = await Client.get(`/rest/cat/items/${categories}`)
+  //   setItems(response.data)
+  // }
+  return (
+    <div className="category-container">
       <Box sx={{ width: '100%', typography: 'body1' }}>
         <TabContext value={value}>
           {categories.map((category) => (
-            <>
-              <div key={category._id}></div>
+            <div key={category._id} className="category-wrapper">
               <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <TabList onChange={handleChange}>
-                  <Tab label={category.name} value={category.name} />
+                <TabList onChange={handleChange} className="tab-list">
+                  <Tab
+                    label={category.name}
+                    value={category.name}
+                    className="tab-item"
+                  />
+                  {(user?.type === 'restaurant' && user._id === rest_id) && (
+                  <button className="add-item-button">
+                    <Link
+                      to={`/createitem/${category._id}`}
+                      className="add-item-link"
+                    >
+                      Add Item
+                    </Link>
+                  </button>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      handleDelete(category._id)
+                    }}
+                  >
+                    Delete
+                  </button>
                 </TabList>
               </Box>
-              <TabPanel value={category.name}>
-                {(user?.type === 'restaurant' && user._id === rest_id) && (
-                  <button>
-                    <Link to={`/createitem/${category._id}`}>Add Items</Link>
-                  </button>
-                )}
-                <br />
-                <div className="items-div-s">
+
+              <TabPanel value={category.name} className="tab-panel">
+            
+                <div className="items-container">
                   {category.items.map(
                     (item) =>
                       item.qty > 0 && (
@@ -82,9 +127,9 @@ const Category = ({ user, categories, cart, setCart, rest_id, r_id, setr_id }) =
                           <img
                             src={item.pic}
                             alt="item pic"
-                            className="item-img-s"
+                            className="item-img"
                           />
-                          <p>
+                          <p className="item-description">
                             <strong>{item.name}</strong>
                             <br /> BHD {item.price} - {item.desc}
                           </p>
@@ -97,15 +142,16 @@ const Category = ({ user, categories, cart, setCart, rest_id, r_id, setr_id }) =
                             </form> 
                             </div> )}
 
-                          {(user?.type != "restaurant") && <button onClick={() => addToCart(item)}>
+                          {(user && user?.type != "restaurant") && <button onClick={() => addToCart(item)}>
                             Add to Cart
                           </button>}
                         </div>
                       )
                   )}
+
                 </div>
               </TabPanel>
-            </>
+            </div>
           ))}
         </TabContext>
       </Box>
