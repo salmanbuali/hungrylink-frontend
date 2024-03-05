@@ -46,6 +46,7 @@ const Menu = ({ user, cart, setCart, r_id, setr_id }) => {
           <p>No categories</p>
         )}
       </div>
+    </div>
   )
 }
 

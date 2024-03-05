@@ -18,7 +18,7 @@ const SignIn = ({ setUser }) => {
     console.log(payload)
     setFormValues({ email: '', password: '' })
     setUser(payload)
-    navigate('/')
+    navigate('/landing')
   }
 
   return (

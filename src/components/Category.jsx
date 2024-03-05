@@ -18,7 +18,8 @@ const Category = ({
   rest_id,
   r_id,
   setr_id,
-  toggleDelete
+  toggleDelete,
+  user
 }) => {
   const [value, setValue] = React.useState()
 
@@ -141,7 +142,7 @@ const Category = ({
                             </form> 
                             </div> )}
 
-                          {(user?.type != "restaurant") && <button onClick={() => addToCart(item)}>
+                          {(user && user?.type != "restaurant") && <button onClick={() => addToCart(item)}>
                             Add to Cart
                           </button>}
                         </div>
