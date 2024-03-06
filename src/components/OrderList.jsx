@@ -7,12 +7,12 @@ const OrderList = ({ order }) => {
       <div>
         <img
           className="max-w-16 my-1 ml-20"
-          src={order.from.avatar}
-          alt={order.from.name}
-        />
+          src={order?.from?.avatar}
+          alt={order?.from?.name}
+        /> 
       </div>
       <h5 className="font-extrabold items-center text-left ">
-        {order.from.name}
+        {order?.from?.name}
       </h5>
       <div className="items-center text-left">
         <div>
