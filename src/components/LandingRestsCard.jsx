@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 const LandingRestsCard = ({ rest, r_id, setr_id }) => {
-  console.log(rest)
   return (
     <div
       key={rest.restId._id}
@@ -10,7 +9,7 @@ const LandingRestsCard = ({ rest, r_id, setr_id }) => {
         <Link
           to={`/menu/${rest.restId._id}`}
           className="m-0"
-          onClick={()=>setr_id(rest._id)}
+          onClick={() => setr_id(rest._id)}
         >
           <img
             className="mx-auto h-24 w-24 flex-shrink-0 rounded-lg"

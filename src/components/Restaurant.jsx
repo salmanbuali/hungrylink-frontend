@@ -129,9 +129,6 @@ const Restaurant = ({ user }) => {
           </div>
         )}
       </div>
-      <div className="pastorders-container">
-        <h5>Your ORDERS</h5>
-      </div>
     </div>
   )
 }
