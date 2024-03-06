@@ -10,7 +10,7 @@ const Navbar = ({ user, handleLogOut, cart }) => {
   }, [cart])
 
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900 fixed w-full mb-4">
+    <nav className="bg-white border-gray-200 dark:bg-gray-900 fixed w-full mb-4 z-50">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         {user ? (
           <Link
