@@ -58,7 +58,7 @@ i {
   grid-template-areas:
     'heading heading'
     'left right';
-  grid-gap: 10px 50px;
+  grid-gap: 10px 20px;
 }
 
 .userTopHalf {
@@ -91,20 +91,23 @@ i {
 }
 
 .userProfile {
-  padding-top: 50px;
   background-color: white;
-  text-align: center;
   grid-area: right;
-  border: black solid;
   border: rgba(0, 0, 0, 0.212) solid 3px;
   border-radius: 20px;
   backdrop-filter: blur(20px) contrast(1.25);
   box-shadow: 0 0 10px rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 .userProfile img {
-  border: black solid;
-  border-radius: 500px;
-  width: 150px;
+  border: gray 1px solid;
+  box-shadow: 0 0 10px rgb(0, 0, 0);
+  width: 125px;
+  height: 125px;
+  border-radius: 100px;
 }
 
 /* .userBackground {
@@ -145,8 +148,6 @@ i {
 
 } */
 
-
-
 .landingDiv {
   display: flex;
   flex-wrap: wrap;
@@ -171,4 +172,3 @@ i {
 .ordersHeader {
   text-align: center;
 }
-

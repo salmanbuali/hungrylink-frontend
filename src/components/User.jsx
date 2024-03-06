@@ -1,11 +1,6 @@
 import { Link } from 'react-router-dom'
-import { useEffect } from 'react'
 
-const User = ({ user, userUpdate }) => {
-  useEffect(() => {
-    console.log(userUpdate)
-    }, [])
-
+const User = ({ user }) => {
   return (
     <div className="userBackground">
       <div className="userInfoGrid">
@@ -16,8 +11,8 @@ const User = ({ user, userUpdate }) => {
             This is your profile page. Here you can edit your details and view
             your past orders.
           </p>
-          <button>
-            <Link to={`/updateuser/${user._id}`}>Update your Details</Link>
+          <button className=" rounded-md bg-gray-800 px-2.5 py-3 text-m font-medium text-white shadow-md ring-1 ring-inset ring-gray-300 hover:bg-gray-700 hover:text-white my-5">
+            <Link to="/orders">Previous orders</Link>
           </button>
         </div>
         <div className="userDetails">
@@ -47,7 +42,9 @@ const User = ({ user, userUpdate }) => {
         </div>
         <div className="userProfile">
           <img src={user.avatar} alt={user.name} />
-          <p>Additional info like description/past orders</p>
+          <button className=" rounded-md bg-gray-800 px-2.5 py-3 text-m font-medium text-white shadow-md ring-1 ring-inset ring-gray-300 hover:bg-gray-700 hover:text-white my-5">
+            <Link to={`/updateuser/${user._id}`}>Update your Details</Link>
+          </button>
         </div>
       </div>
     </div>
