@@ -9,6 +9,7 @@ const Order = ({ user, cart }) => {
     const getAllOrders = async () => {
       const response = await Client.get(`/rest/allorders/${user._id}`)
       setAllOrders(response.data)
+      console.log(response.data)
     }
     getAllOrders()
   }, [cart])
