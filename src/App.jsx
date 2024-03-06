@@ -46,7 +46,7 @@ const App = () => {
       <div>
         <Navbar user={user} handleLogOut={handleLogOut} cart={cart} />
       </div>
-      <main className="h-full">
+      <main className="mt-16 pt-2">
         <Routes>
           <Route path="/" element={<Home user={user} />} />
           <Route path="/profile" element={<Profile user={user} />} />
