@@ -1,16 +1,10 @@
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 
-const User = ({ user }) => {
-  // const [user, setUsers] = useState({})
-
-  // useEffect(() => {
-  //   const getUser = async () => {
-  //     const response = await axios.get()
-  //     console.log(response)
-  //     setUsers(response.data)
-  //   }
-  //   getUser()
-  // }, [])
+const User = ({ user, userUpdate }) => {
+  useEffect(() => {
+    console.log(userUpdate)
+    }, [])
 
   return (
     <div className="userBackground">

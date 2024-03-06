@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 
 const Restaurant = ({ rest }) => {
-  console.log(rest)
   return (
     <div>
       <div className="landingDivList">

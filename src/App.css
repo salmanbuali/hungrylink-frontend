@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 #root {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins';
 }
 
 body {
   margin: 0;
-  padding: 0;
+  padding: 0x;
   background-color: white;
 }
 
@@ -150,7 +150,6 @@ i {
 .landingDiv {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .landingDivList {
