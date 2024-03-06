@@ -36,10 +36,13 @@ const UserUpdate = ({ user, setUser }) => {
 
   return (
     <>
-      <div>
-        <h3>Update Your Details</h3>
-        <form onSubmit={handleSubmit}>
+      <div className="flex flex-col items-center">
+        <h3 className=" text-center font-bold mt-7 text-3xl pb-3">
+          Update Your Details
+        </h3>
+        <form className="w-1/3" onSubmit={handleSubmit}>
           <input
+            className="mt-2 shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light w-full"
             type="text"
             placeholder="Name"
             id="name"
@@ -48,6 +51,7 @@ const UserUpdate = ({ user, setUser }) => {
             required
           />
           <input
+            className="mt-2 shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light w-full"
             type="text"
             placeholder="Avatar"
             id="avatar"
@@ -56,6 +60,7 @@ const UserUpdate = ({ user, setUser }) => {
             required
           />
           <input
+            className="mt-2 shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light w-full"
             type="text"
             placeholder="Contact"
             id="contact"
@@ -64,6 +69,7 @@ const UserUpdate = ({ user, setUser }) => {
             required
           />
           <input
+            className="mt-2 shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light w-full"
             type="text"
             placeholder="Address"
             id="address"
@@ -71,7 +77,9 @@ const UserUpdate = ({ user, setUser }) => {
             onChange={handleChange}
             required
           />
-          <button>Update</button>
+          <button className=" rounded-md bg-gray-800 px-2.5 py-3 text-m font-medium text-white shadow-md ring-1 ring-inset ring-gray-300 hover:bg-gray-50 hover:text-gray-800 mt-5 mb-4 w-full">
+            Update
+          </button>
         </form>
       </div>
     </>
