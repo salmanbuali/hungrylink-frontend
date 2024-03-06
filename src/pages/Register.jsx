@@ -52,7 +52,7 @@ const Register = () => {
         Your browser does not support the video tag.
       </video>
       <form className="register-form" onSubmit={handleSubmit}>
-        <h2 class="animation a1">Sing Up to Start the DELICIOUSNESS!</h2>
+        <h2 class="animation a1">Sign Up to Start the DELICIOUSNESS!</h2>
         <h4 class="animation a2">
           Please fill in all of the information Below
         </h4>

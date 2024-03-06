@@ -1,18 +1,18 @@
 /* Form.css */
+
 .register-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: white;
-  height: 90vh;
-  width: 30%;
+  height: auto;
+  width: 35%;
 }
 
 .register-form {
   background-color: white;
-  padding: 20px;
-  width: 400px;
+  padding: 11%;
   max-width: 90%;
 }
 .background-video {
@@ -21,12 +21,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: initial;
-  z-index: -1;
+  object-fit: contain;
+  filter: brightness(0.5); /* Dark filter */
 }
 
 .register-form h1 {
-  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -42,7 +41,7 @@
 
 .select-box select {
   padding: 10px 15px;
-  width: 97%;
+  width: 90%;
   font-size: 14px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
@@ -54,7 +53,8 @@
 }
 .register-form h2 {
   color: #238636;
-  font-size: xx-large;
+  font-size: large;
+  font-weight: bolder;
 }
 .register-form h4 {
   color: rgba(0, 0, 0, 0.4);
@@ -62,7 +62,6 @@
 }
 .register-form h5 {
   text-align: center;
-  margin-top: 10px;
   font-size: medium;
 }
 
