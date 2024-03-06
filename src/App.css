@@ -66,7 +66,7 @@ i {
   grid-area: heading;
   background-color: transparent;
   border: rgba(0, 0, 0, 0.212) solid 3px;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: white;
   backdrop-filter: blur(20px);
   box-shadow: 0 0 10px rgb(0, 0, 0);
@@ -78,7 +78,7 @@ i {
   border: black solid;
   background-color: white;
   border: rgba(0, 0, 0, 0.212) solid 3px;
-  border-radius: 20px;
+  border-radius: 10px;
   backdrop-filter: blur(20px) contrast(1.25);
   box-shadow: 0 0 10px rgb(0, 0, 0);
   padding: 30px;
@@ -94,12 +94,13 @@ i {
   background-color: white;
   grid-area: right;
   border: rgba(0, 0, 0, 0.212) solid 3px;
-  border-radius: 20px;
+  border-radius: 10px;
   backdrop-filter: blur(20px) contrast(1.25);
   box-shadow: 0 0 10px rgb(0, 0, 0);
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 20px;
 }
 
 .userProfile img {
