@@ -11,7 +11,6 @@ const Menu = ({ user, cart, setCart, r_id, setr_id }) => {
   const [deleteCat, toggleDelete] = useState(false)
   const [updateQty, toggleUpdateQty] = useState(false)
 
-
   useEffect(() => {
     const axioscall = async () => {
       const response = await Client.get(`/rest/menu/${restId}`)
@@ -26,12 +25,11 @@ const Menu = ({ user, cart, setCart, r_id, setr_id }) => {
       <div className="Menu-container">
         <h2>{userRestaurant.name} menu</h2>
         {restaurantDetails._id === user?.restId?._id && (
-          <button className="Menu-category-button">
+          <button className="Menu-category-button bg-green-600">
             <Link to="/createcategory">Add Category</Link>
           </button>
         )}
       </div>
-
 
       <div className="category-container">
         {restaurantDetails?.menu?.categoryId?.length > 0 ? (
@@ -46,7 +44,6 @@ const Menu = ({ user, cart, setCart, r_id, setr_id }) => {
             toggleUpdateQty={toggleUpdateQty}
             updateQty={updateQty}
             user={user}
-            
           />
         ) : (
           <p>No categories</p>

@@ -62,10 +62,10 @@ const Category = ({
     setCart([...cart, item])
   }
 
-  if(updateQty === true){
+  if (updateQty === true) {
     setTimeout(() => {
-      toggleUpdateQty(!updateQty);
-    }, 2000);
+      toggleUpdateQty(!updateQty)
+    }, 2000)
   }
 
   const updateItem = async (e, itemId) => {
@@ -96,7 +96,10 @@ const Category = ({
           {categories.map((category) => (
             <div key={category._id} className="category-wrapper">
               <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <TabList onChange={handleChange} className="tab-list">
+                <TabList
+                  onChange={handleChange}
+                  className="tab-list bg-green-600"
+                >
                   <Tab
                     label={category.name}
                     value={category.name}
@@ -186,7 +189,9 @@ const Category = ({
                                   >
                                     Update
                                   </button>
-                                  {updateQty && <span class="absolute w-3 h-3 me-3 bg-green-500 rounded-full mt-2"></span>}
+                                  {updateQty && (
+                                    <span class="absolute w-3 h-3 me-3 bg-green-500 rounded-full mt-2"></span>
+                                  )}
                                 </div>
                               </form>
                             </div>
