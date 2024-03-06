@@ -8,6 +8,7 @@
   background-color: white;
   height: auto;
   width: 35%;
+  height: 100%;
 }
 
 .register-form {
@@ -21,8 +22,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  filter: brightness(0.5); /* Dark filter */
+  object-fit: cover;
+  filter: brightness(0.5);
 }
 
 .register-form h1 {
@@ -31,7 +32,7 @@
 
 .register-form input {
   padding: 10px 15px;
-  width: 90%;
+  width: 100%;
   border: 1px solid #ccc;
   border-radius: 5px;
   outline: none;
@@ -41,7 +42,7 @@
 
 .select-box select {
   padding: 10px 15px;
-  width: 90%;
+  width: 100%;
   font-size: 14px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
@@ -52,13 +53,14 @@
   border-color: #333;
 }
 .register-form h2 {
-  color: #238636;
+  color: #17a34a;
   font-size: large;
   font-weight: bolder;
 }
 .register-form h4 {
   color: rgba(0, 0, 0, 0.4);
   font-size: small;
+  padding-bottom: 2%;
 }
 .register-form h5 {
   text-align: center;
@@ -66,7 +68,7 @@
 }
 
 .register-form h5 a {
-  color: #238636;
+  color: #17a34a;
   text-decoration: underline;
 }
 
@@ -91,7 +93,7 @@
 }
 
 .register-form button:hover {
-  background-color: #238636;
+  background-color: #17a34a;
 }
 
 /* Form.css */
@@ -142,7 +144,7 @@
 }
 
 .sign-in-form h5 a {
-  color: #238636;
+  color: #17a34a;
   text-decoration: underline;
 }
 
@@ -167,7 +169,7 @@
 }
 
 .sign-in-form button:hover {
-  background-color: #238636;
+  background-color: #17a34a;
 }
 .animation {
   animation-name: move;
@@ -186,7 +188,7 @@
 
 .header > h2 {
   margin: 0;
-  color: #238636;
+  color: #17a34a;
   margin-left: 5%;
   font-weight: bolder;
   font-size: xx-large;

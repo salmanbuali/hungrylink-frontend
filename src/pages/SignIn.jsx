@@ -24,7 +24,7 @@ const SignIn = ({ setUser }) => {
   return (
     <div className="sign-in-container">
       <video className="background-video" autoPlay loop muted>
-        <source src="public/video/Untitled design.mp4" type="video/mp4" />
+        <source src="video/Untitled design-2.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className="left">
@@ -42,8 +42,7 @@ const SignIn = ({ setUser }) => {
             value={formValues.email}
             onChange={handleChange}
             required
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  dark:bg-green-700 dark:border-gray-600 dark:placeholder-white
-            dark:text-white"
+            className="bg-green-600 border border-gray-300 text-white text-sm rounded-lg placeholder-white"
           />
           <input
             type="password"
@@ -52,8 +51,7 @@ const SignIn = ({ setUser }) => {
             value={formValues.password}
             onChange={handleChange}
             required
-            className="border-gray-300 text-gray-900 text-sm rounded-lg  dark:bg-green-700 dark:border-gray-600 dark:placeholder-white
-            dark:text-white"
+            className="bg-green-600 border border-gray-300 text-white text-sm rounded-lg placeholder-white"
           />
           <h5>
             Don't have an account? <Link to="/register">Register</Link>
@@ -61,7 +59,12 @@ const SignIn = ({ setUser }) => {
           <div className="button-div">
             <button
               disabled={!formValues.email || !formValues.password}
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="                  
+              text-white
+              bg-green-600
+              hover:bg-green-700
+              focus:ring-4
+              focus:outline-none"
             >
               Sign In
             </button>
