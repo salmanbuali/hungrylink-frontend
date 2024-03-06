@@ -15,6 +15,7 @@ import AddItem from './pages/AddItem'
 import UserUpdate from './pages/UserUpdate'
 import Cart from './components/Cart'
 import Landing from './pages/Landing'
+import Team from './pages/Team'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -48,7 +49,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home user={user} />} />
           <Route path="/profile" element={<Profile user={user} />} />
-          <Route path="/orders" element={<Order user={user} />} />
+          <Route path="/orders" element={<Order user={user} cart={cart}/>} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
           <Route
@@ -79,9 +80,13 @@ const App = () => {
             path="/landing"
             element={<Landing user={user} cart={cart} />}
           />
+          <Route
+            path="/team"
+            element={<Team />}
+          />
         </Routes>
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   )
 }

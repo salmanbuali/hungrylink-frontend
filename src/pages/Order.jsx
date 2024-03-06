@@ -2,7 +2,7 @@ import OrderList from '../components/OrderList'
 import { useState, useEffect } from 'react'
 import Client from '../services/api'
 
-const Order = ({ user }) => {
+const Order = ({ user, cart }) => {
   const [allOrders, setAllOrders] = useState([])
 
   useEffect(() => {
@@ -11,7 +11,7 @@ const Order = ({ user }) => {
       setAllOrders(response.data)
     }
     getAllOrders()
-  }, [])
+  }, [cart])
 
   return (
     <>
