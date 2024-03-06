@@ -90,20 +90,22 @@ const Landing = ({ user, r_id, setr_id }) => {
           onChange={handleInputChange}
         />
       </div>
-      <div className="grid grid-cols-5 mx-80">
-        {allcuisines.map((cuis, i) => (
-          <div key={i}>
-            <input
-              id={cuis}
-              value={cuis}
-              type="checkbox"
-              onChange={handleChange}
-            />
-            <label htmlFor={cuis} className="pl-1">
-              {cuis}
-            </label>
-          </div>
-        ))}
+      <div className=" pl-6">
+        <div className="grid grid-cols-5 mx-80">
+          {allcuisines.map((cuis, i) => (
+            <div key={i}>
+              <input
+                id={cuis}
+                value={cuis}
+                type="checkbox"
+                onChange={handleChange}
+              />
+              <label htmlFor={cuis} className="pl-1">
+                {cuis}
+              </label>
+            </div>
+          ))}
+        </div>
       </div>
       <div>
         <div className="flex flex-center flex-wrap justify-center gap-2">
