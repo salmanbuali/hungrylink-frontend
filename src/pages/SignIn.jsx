@@ -1,7 +1,7 @@
+// SignIn.jsx
 import { useState } from 'react'
 import { SignInUser } from '../services/Auth'
 import { useNavigate, Link } from 'react-router-dom'
-import '../styles/Form.css'
 
 const SignIn = ({ setUser }) => {
   let navigate = useNavigate()
@@ -24,13 +24,13 @@ const SignIn = ({ setUser }) => {
   return (
     <div className="sign-in-container">
       <video className="background-video" autoPlay loop muted>
-        <source src="public/video/Untitled design.mp4" type="video/mp4" />
+        <source src="video/Untitled design-2.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className="left">
         <div className="header">
-          <h2 class="animation a1">Welcome Back</h2>
-          <h4 class="animation a2">
+          <h2 className="animation a1">Welcome Back</h2>
+          <h4 className="animation a2">
             Log in to your account using email and password
           </h4>
         </div>
@@ -42,6 +42,7 @@ const SignIn = ({ setUser }) => {
             value={formValues.email}
             onChange={handleChange}
             required
+            className="bg-green-600 border border-gray-300 text-white text-sm rounded-lg placeholder-white"
           />
           <input
             type="password"
@@ -50,12 +51,21 @@ const SignIn = ({ setUser }) => {
             value={formValues.password}
             onChange={handleChange}
             required
+            className="bg-green-600 border border-gray-300 text-white text-sm rounded-lg placeholder-white"
           />
           <h5>
             Don't have an account? <Link to="/register">Register</Link>
           </h5>
           <div className="button-div">
-            <button disabled={!formValues.email || !formValues.password}>
+            <button
+              disabled={!formValues.email || !formValues.password}
+              className="                  
+              text-white
+              bg-green-600
+              hover:bg-green-700
+              focus:ring-4
+              focus:outline-none"
+            >
               Sign In
             </button>
           </div>

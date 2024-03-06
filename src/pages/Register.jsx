@@ -48,11 +48,14 @@ const Register = () => {
   return (
     <div className="register-container">
       <video className="background-video" autoPlay loop muted>
-        <source src="public/video/Untitled design.mp4" type="video/mp4" />
+        <source
+          src="video/Wow Kitchens Jaipur | Cinematic Food Commercial | Tarun Gupta Photography.mp4"
+          type="video/mp4"
+        />
         Your browser does not support the video tag.
       </video>
       <form className="register-form" onSubmit={handleSubmit}>
-        <h2 class="animation a1">Sing Up to Start the DELICIOUSNESS!</h2>
+        <h2 class="animation a1">Sign Up to Start the DELICIOUSNESS!</h2>
         <h4 class="animation a2">
           Please fill in all of the information Below
         </h4>
@@ -137,6 +140,7 @@ const Register = () => {
               !formValues.password ||
               formValues.password !== formValues.confirmPassword
             }
+            className="bg-green-600 border border-gray-300 text-white text-sm rounded-lg placeholder-white"
           >
             Register
           </button>
