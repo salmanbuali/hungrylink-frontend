@@ -51,9 +51,7 @@ const Category = ({
   }
 
   const addToCart = (item) => {
-    if (rest_id !== r_id) {
-      return
-    }
+    
     if (cart.indexOf(item) !== -1) {
       console.log('Object found in the array!')
       return

@@ -19,7 +19,7 @@ const Navbar = ({ user, handleLogOut, cart }) => {
           >
             <WebLogo className="h-10 md:h-10 !important" />
             <span className="self-center text-lg md:text-2xl font-semibold whitespace-nowrap dark:text-white">
-              COOKED
+              COOKED™
             </span>
           </Link>
         ) : (
