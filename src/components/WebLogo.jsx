@@ -1,15 +1,13 @@
+// WebLogo.js
 import React from 'react'
-import '../styles/navBar.css'
 
-const WebLogo = () => {
+const WebLogo = ({ className }) => {
   return (
-    <div className="logoContainer">
-      <img
-        src="/video/Black Cyan Modern Minimalist Restaurant and Cafe Logo-2.jpg"
-        alt="Logo"
-        className="logoImage"
-      />
-    </div>
+    <img
+      src="video/2.png"
+      alt="Flowbite Logo"
+      className={`h-10 md:h-10 ${className}`}
+    />
   )
 }
 
