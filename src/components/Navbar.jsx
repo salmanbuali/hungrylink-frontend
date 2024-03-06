@@ -4,8 +4,7 @@ import WebLogo from './WebLogo'
 import '../styles/navBar.css'
 
 const Navbar = ({ user, handleLogOut, cart }) => {
-  const [showDropdown, setShowDropdown] = useState(false) // State for dropdown menu
-
+  const [showDropdown, setShowDropdown] = useState(false)
   useEffect(() => {
     return
   }, [cart])
@@ -18,6 +17,7 @@ const Navbar = ({ user, handleLogOut, cart }) => {
           <WebLogo className="navBarLogo" />
         </div>
         <div className="navBarMiddle">
+          <Link to='/team'>Devs</Link>
           <Link to="/landing">Home</Link>
           <Link to="/profile">Profile</Link>
           {user?.type === 'restaurant' && user.restId.menu && (
@@ -53,6 +53,7 @@ const Navbar = ({ user, handleLogOut, cart }) => {
       </div>
       <div className="navBarMiddle">
         <Link to="/">HungryLink</Link>
+        <Link to='/team'>Devs</Link>
         <Link to="/landing">Home</Link>
         <Link to="/register">Register</Link>
         <Link to="/signin">Sign In</Link>
