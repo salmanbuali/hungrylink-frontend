@@ -36,13 +36,15 @@ const Restaurant = ({ user }) => {
     }
   }
 
+  const [addedCuis, setAddedCuis] = useState(false)
+
   const addCuis = async () => {
     const request = {
       checkBoxValues,
       _id: user._id
     }
     await Client.post('/rest/newcuis', request)
-    navigate(`/menu/${user.restId._id}`)
+    setAddedCuis(!addedCuis)
   }
 
   useEffect(() => {
@@ -51,7 +53,7 @@ const Restaurant = ({ user }) => {
       setCuisines(response.data)
     }
     getCuis()
-  }, [])
+  }, [addedCuis])
 
   const cuisineOptions = [
     'American',

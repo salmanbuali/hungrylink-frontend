@@ -38,13 +38,13 @@ i {
 
 .profilePage {
   background-color: #238636;
-  height: 150vh;
+  height: 90vh;
   width: 100vw;
 }
 
 .profileDiv {
   color: black;
-  padding: 10vh;
+  padding: 5vh;
 }
 
 .restDiv img {
@@ -52,7 +52,6 @@ i {
   border-radius: 20px;
   border: 4px solid rgba(0, 0, 0, 0.5);
 }
-/* */
 
 .userInfoGrid {
   display: grid;
@@ -61,27 +60,26 @@ i {
   grid-template-areas:
     'heading heading'
     'left right';
-  grid-gap: 10px 50px;
+  grid-gap: 20px 20px;
 }
 
 .userTopHalf {
   padding: 30px;
   grid-area: heading;
   background-color: transparent;
-  border: rgba(0, 0, 0, 0.212) solid 3px;
-  border-radius: 20px;
+  border: rgba(0, 0, 0, 0.212) solid 2px;
+  border-radius: 10px;
   background-color: white;
   backdrop-filter: blur(20px);
   box-shadow: 0 0 10px rgb(0, 0, 0);
-  max-height: 30vh;
 }
 
 .userDetails {
   grid-area: left;
   border: black solid;
   background-color: white;
-  border: rgba(0, 0, 0, 0.212) solid 3px;
-  border-radius: 20px;
+  border: rgba(0, 0, 0, 0.212) solid 2px;
+  border-radius: 10px;
   backdrop-filter: blur(20px) contrast(1.25);
   box-shadow: 0 0 10px rgb(0, 0, 0);
   padding: 30px;
@@ -94,20 +92,25 @@ i {
 }
 
 .userProfile {
-  padding-top: 50px;
   background-color: white;
-  text-align: center;
   grid-area: right;
-  border: black solid;
-  border: rgba(0, 0, 0, 0.212) solid 3px;
-  border-radius: 20px;
+  border: rgba(0, 0, 0, 0.212) solid 2px;
+  border-radius: 10px;
   backdrop-filter: blur(20px) contrast(1.25);
   box-shadow: 0 0 10px rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
+
 .userProfile img {
-  border: black solid;
-  border-radius: 500px;
-  width: 150px;
+  border: gray 1px solid;
+  box-shadow: 0 0 10px rgb(0, 0, 0);
+  width: 125px;
+  height: 125px;
+  border-radius: 100px;
 }
 
 /* .userBackground {

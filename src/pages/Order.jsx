@@ -15,15 +15,19 @@ const Order = ({ user, cart }) => {
 
   return (
     <>
-      <div className="order-container">
-        <h3 className="ordersHeader">Your Past orders: </h3>
+      <div className="">
+        <h3 className=" text-center font-bold mt-7 text-3xl">
+          Your Past Orders
+        </h3>
       </div>
-      <div className="landingDiv">
-        {allOrders.map((order) => (
-          <div key={order._id}>
-            <OrderList order={order} />
-          </div>
-        ))}
+      <div className="flex justify-center">
+        <div className="w-4/5">
+          {allOrders.map((order) => (
+            <div key={order._id}>
+              <OrderList order={order} />
+            </div>
+          ))}
+        </div>
       </div>
     </>
   )
