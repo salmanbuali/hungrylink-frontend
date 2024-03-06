@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
 const RestaurantCard = ({ rest, r_id, setr_id }) => {
+  
   return (
     <div>
       <div className="landingDivList flex items-center">
