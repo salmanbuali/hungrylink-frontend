@@ -1,4 +1,3 @@
-// Restaurant.js
 import { useNavigate } from 'react-router-dom'
 import Client from '../services/api'
 import { useState, useEffect } from 'react'
@@ -54,12 +53,47 @@ const Restaurant = ({ user }) => {
     getCuis()
   }, [])
 
+  const cuisineOptions = [
+    'African',
+    'American',
+    'Brazilian',
+    'Caribbean',
+    'Chinese',
+    'Cuban',
+    'Desserts',
+    'Ethiopian',
+    'French',
+    'Fast Food',
+    'German',
+    'Greek',
+    'Hawaiian',
+    'Indian',
+    'Irish',
+    'Italian',
+    'Jamaican',
+    'Japanese',
+    'Korean',
+    'Lebanese',
+    'Mediterranean',
+    'Mexican',
+    'Moroccan',
+    'Peruvian',
+    'Portuguese',
+    'Russian',
+    'Scandinavian',
+    'Spanish',
+    'Thai',
+    'Turkish',
+    'Vietnamese',
+    'Others'
+  ]
+
   return (
     <div className="Restaurant">
       <div className="user-card">
         <img src={user.avatar} alt={user.name} />
         <div className="user-info">
-          <h4>{user.name}</h4>
+          <h4>User Name: {user.name}</h4>
           <h4>Account Type: {user.type}</h4>
           <h6>Contact: {user.contact}</h6>
           <div>
@@ -71,61 +105,23 @@ const Restaurant = ({ user }) => {
           </div>
         </div>
       </div>
-      <div>
-        {menus === false ? (
-          <button onClick={createNewMenu}>Create Menu</button>
-        ) : (
-          <Link to={`/menu/${user.restId._id}`}>View Menu</Link>
-        )}
-      </div>
-      <div>
+      <div className="cuisine-container">
+        <div className="button-container">
+          <button onClick={addCuis}>Add Cuisines</button>
+        </div>
         {cuisines === false ? (
-          <div>
-            <label htmlFor="">Chinese</label>
-            <input
-              id="chinese"
-              value="chinese"
-              type="checkbox"
-              onChange={handleChange}
-            />
-            <label htmlFor="">American</label>
-            <input
-              id="american"
-              value="american"
-              type="checkbox"
-              onChange={handleChange}
-            />
-            <label htmlFor="">Korean</label>
-            <input
-              id="korean"
-              value="korean"
-              type="checkbox"
-              onChange={handleChange}
-            />
-            <label htmlFor="">Italian</label>
-            <input
-              id="italian"
-              value="italian"
-              type="checkbox"
-              onChange={handleChange}
-            />
-            <label htmlFor="">Arabic</label>
-            <input
-              id="arabic"
-              value="arabic"
-              type="checkbox"
-              onChange={handleChange}
-            />
-            <label htmlFor="">Fast Food</label>
-            <input
-              id="fastfood"
-              value="fastfood"
-              type="checkbox"
-              onChange={handleChange}
-            />
-            <div>
-              <button onClick={addCuis}>add Cuisines</button>
-            </div>
+          <div className="checkbox-wrapper">
+            {cuisineOptions.map((cuisine, index) => (
+              <div className="checkbox-group" key={index}>
+                <label htmlFor={`cuisine-${index}`}>{cuisine}</label>
+                <input
+                  id={cuisine}
+                  value={cuisine}
+                  type="checkbox"
+                  onChange={handleChange}
+                />
+              </div>
+            ))}
           </div>
         ) : (
           <div>
@@ -137,6 +133,14 @@ const Restaurant = ({ user }) => {
             </ul>
           </div>
         )}
+      </div>
+      <div className="pastorders-container">
+        <h5>Your ORDERS</h5>
+        <ul>
+          {/* {cuisines.map((cuisine, index) => (
+            <li key={index}>{cuisine}</li>
+          ))} */}
+        </ul>
       </div>
     </div>
   )
