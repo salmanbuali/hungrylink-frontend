@@ -29,12 +29,12 @@ const Category = ({
 
   const [newQty, setNewQty] = useState(0)
 
+
   useEffect(() => {
     const getItems = async () => {
       const response = await Client.get(`/rest/cat/items/${categories}`)
       setItems(response.data)
     }
-    console.log(user)
     getItems()
   }, [user, updateQty])
 
@@ -51,12 +51,14 @@ const Category = ({
   }
 
   const addToCart = (item) => {
-    
+
     if (cart.indexOf(item) !== -1) {
       console.log('Object found in the array!')
       return
     }
+
     item.userQty = 1
+
     setCart([...cart, item])
   }
 
