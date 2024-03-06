@@ -9,6 +9,8 @@ const Menu = ({ user, cart, setCart, r_id, setr_id }) => {
   const [userRestaurant, setuserRest] = useState({})
   const [restaurantDetails, setrestaurantDetails] = useState({})
   const [deleteCat, toggleDelete] = useState(false)
+  const [updateQty, toggleUpdateQty] = useState(false)
+
 
   useEffect(() => {
     const axioscall = async () => {
@@ -17,7 +19,7 @@ const Menu = ({ user, cart, setCart, r_id, setr_id }) => {
       setuserRest(response.data.userRest)
     }
     axioscall()
-  }, [deleteCat])
+  }, [deleteCat, updateQty])
 
   return (
     <div className="Menu-div-s">
@@ -41,7 +43,10 @@ const Menu = ({ user, cart, setCart, r_id, setr_id }) => {
             r_id={r_id}
             rest_id={userRestaurant._id}
             toggleDelete={toggleDelete}
+            toggleUpdateQty={toggleUpdateQty}
+            updateQty={updateQty}
             user={user}
+            
           />
         ) : (
           <p>No categories</p>
