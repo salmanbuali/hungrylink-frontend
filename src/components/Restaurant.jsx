@@ -85,24 +85,46 @@ const Restaurant = ({ user }) => {
 
   return (
     <div className="Restaurant">
-      <div className="user-card">
-        <img src={user.avatar} alt={user.name} />
-        <div className="user-info">
-          <h4>User Name: {user.name}</h4>
-          <h4>Account Type: {user.type}</h4>
-          <h6>Contact: {user.contact}</h6>
-          <div>
+      <div className="user-card flex flex-col justify-between">
+        <div className="w-1/2 pt-4">
+          <img className="rounded-3xl  border shadow-md" src={user.avatar} alt={user.name} />
+        </div>
+        {/* <div className="user-info"> */}
+        <div className="flex flex-col pb-10 text-center">
+          <h4 className="py-1">
+            <span className="font-semibold">User Name :</span> {user.name}
+          </h4>
+          <h4 className="py-1">
+            <span className="font-semibold">Account Type :</span> {user.type}
+          </h4>
+          <h6 className="py-1">
+            <span className="font-semibold">Contact :</span> {user.contact}
+          </h6>
+          <div className="py-6">
             {menus === false ? (
-              <button onClick={createNewMenu}>Create Menu</button>
+              <button
+                className=" rounded-md bg-gray-800 px-2.5 py-3 text-m font-medium text-white shadow-md ring-1 ring-inset ring-gray-300 hover:bg-gray-50 hover:text-gray-800 mt-5 w-full"
+                onClick={createNewMenu}
+              >
+                Create Menu
+              </button>
             ) : (
-              <Link to={`/menu/${user.restId._id}`}>View Menu</Link>
+              <button className=" rounded-md bg-gray-800 px-2.5 py-3 text-m font-medium text-white shadow-md ring-1 ring-inset ring-gray-300 hover:bg-gray-50 hover:text-gray-800 mt-5 w-full">
+                {' '}
+                <Link to={`/menu/${user.restId._id}`}>View Menu</Link>
+              </button>
             )}
           </div>
         </div>
       </div>
       <div className="cuisine-container">
-        <div className="button-container">
-          <button onClick={addCuis}>Add Cuisines</button>
+        <div className="flex justify-center pb-6">
+          <button
+            className=" rounded-md bg-gray-800 px-2.5 py-3 text-m font-medium text-white shadow-md ring-1 ring-inset ring-gray-300 hover:bg-gray-50 hover:text-gray-800 mt-5 w-1/3"
+            onClick={addCuis}
+          >
+            Add Cuisines
+          </button>
         </div>
         {cuisines === false ? (
           <div className="checkbox-wrapper">
@@ -119,11 +141,13 @@ const Restaurant = ({ user }) => {
             ))}
           </div>
         ) : (
-          <div>
-            <h5>Your Cuisines</h5>
-            <ul>
+          <div className="text-center pt-16">
+            <h5 className=" font-bold text-2xl pb-4 ">Your Cuisines</h5>
+            <ul className="underline underline-offset-4">
               {cuisines.map((cuisine, index) => (
-                <li key={index}>{cuisine}</li>
+                <li className="p-2" key={index}>
+                  {cuisine}
+                </li>
               ))}
             </ul>
           </div>
