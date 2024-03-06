@@ -19,6 +19,8 @@ const Category = ({
   r_id,
   setr_id,
   toggleDelete,
+  toggleUpdateQty,
+  updateQty,
   user
 }) => {
   const [value, setValue] = React.useState()
@@ -34,7 +36,7 @@ const Category = ({
     }
     console.log(user)
     getItems()
-  }, [user])
+  }, [user, updateQty])
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
@@ -49,7 +51,9 @@ const Category = ({
   }
 
   const addToCart = (item) => {
-    setr_id(rest_id)
+    if (rest_id !== r_id) {
+      return
+    }
     if (cart.indexOf(item) !== -1) {
       console.log('Object found in the array!')
       return
@@ -58,9 +62,15 @@ const Category = ({
     setCart([...cart, item])
   }
 
+  if(updateQty === true){
+    setTimeout(() => {
+      toggleUpdateQty(!updateQty);
+    }, 2000);
+  }
+
   const updateItem = async (e, itemId) => {
     e.preventDefault()
-    console.log(itemId)
+    toggleUpdateQty(!updateQty)
     const request = {
       _id: itemId,
       newQty: newQty
@@ -155,7 +165,7 @@ const Category = ({
                           </p>
 
                           {user?._id === rest_id && (
-                            <div>
+                            <div className="flex items-center flex-col">
                               <form>
                                 <label> Quantity: {item.qty} </label> <br />
                                 <p>
@@ -169,12 +179,15 @@ const Category = ({
                                     onChange={handleChangeOfQty}
                                   />
                                 </p>
-                                <button
-                                  className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 mx-8 mt-3 hover:bg-gray-50"
-                                  onClick={(e) => updateItem(e, item._id)}
-                                >
-                                  Update
-                                </button>
+                                <div className="flex items-center">
+                                  <button
+                                    className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 mx-8 mt-3 hover:bg-gray-50"
+                                    onClick={(e) => updateItem(e, item._id)}
+                                  >
+                                    Update
+                                  </button>
+                                  {updateQty && <span class="absolute w-3 h-3 me-3 bg-green-500 rounded-full mt-2"></span>}
+                                </div>
                               </form>
                             </div>
                           )}

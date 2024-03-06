@@ -145,8 +145,6 @@ i {
 
 } */
 
-
-
 .landingDiv {
   display: flex;
   flex-wrap: wrap;
@@ -171,4 +169,3 @@ i {
 .ordersHeader {
   text-align: center;
 }
-

@@ -54,38 +54,31 @@ const Restaurant = ({ user }) => {
   }, [])
 
   const cuisineOptions = [
-    'African',
     'American',
-    'Brazilian',
-    'Caribbean',
+    'Bahraini',
     'Chinese',
-    'Cuban',
     'Desserts',
-    'Ethiopian',
-    'French',
     'Fast Food',
-    'German',
-    'Greek',
-    'Hawaiian',
     'Indian',
     'Irish',
     'Italian',
-    'Jamaican',
     'Japanese',
     'Korean',
     'Lebanese',
     'Mediterranean',
     'Mexican',
-    'Moroccan',
-    'Peruvian',
-    'Portuguese',
-    'Russian',
-    'Scandinavian',
-    'Spanish',
     'Thai',
     'Turkish',
-    'Vietnamese',
-    'Others'
+    'Persian',
+    'Breakfast',
+    'Asian',
+    'Oriental',
+    'Egyptian',
+    'Bakery',
+    'Cafeteria',
+    'Continental',
+    'Juices',
+    'Vegan'
   ]
 
   return (
@@ -136,11 +129,6 @@ const Restaurant = ({ user }) => {
       </div>
       <div className="pastorders-container">
         <h5>Your ORDERS</h5>
-        <ul>
-          {/* {cuisines.map((cuisine, index) => (
-            <li key={index}>{cuisine}</li>
-          ))} */}
-        </ul>
       </div>
     </div>
   )

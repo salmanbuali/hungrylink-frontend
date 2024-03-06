@@ -46,11 +46,11 @@ const App = () => {
       <div>
         <Navbar user={user} handleLogOut={handleLogOut} cart={cart} />
       </div>
-      <main>
+      <main className="h-full">
         <Routes>
           <Route path="/" element={<Home user={user} />} />
           <Route path="/profile" element={<Profile user={user} />} />
-          <Route path="/orders" element={<Order user={user} cart={cart}/>} />
+          <Route path="/orders" element={<Order user={user} cart={cart} />} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
           <Route
@@ -79,12 +79,11 @@ const App = () => {
           />
           <Route
             path="/landing"
-            element={<Landing user={user} cart={cart} />}
+            element={
+              <Landing user={user} cart={cart} r_id={r_id} setr_id={setr_id} />
+            }
           />
-          <Route
-            path="/team"
-            element={<Team />}
-          />
+          <Route path="/team" element={<Team />} />
         </Routes>
       </main>
       <Footer />
