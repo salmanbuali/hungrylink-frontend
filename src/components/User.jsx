@@ -1,11 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
 
-const User = ({ user, userUpdate }) => {
-  useEffect(() => {
-    console.log(userUpdate)
-  }, [])
-
+const User = ({ user }) => {
   return (
     <div className="userBackground">
       <div className="userInfoGrid">

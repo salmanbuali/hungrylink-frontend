@@ -90,8 +90,7 @@ const Landing = ({ user, r_id, setr_id }) => {
           onChange={handleInputChange}
         />
       </div>
-
-      <div className="flex flex-row gap-2 flex-wrap justify-center mx-80">
+      <div className="grid grid-cols-5 mx-80">
         {allcuisines.map((cuis, i) => (
           <div key={i}>
             <input
