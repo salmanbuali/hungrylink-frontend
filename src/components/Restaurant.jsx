@@ -87,9 +87,12 @@ const Restaurant = ({ user }) => {
     <div className="Restaurant">
       <div className="user-card flex flex-col justify-between">
         <div className="w-1/2 pt-4">
-          <img className="rounded-3xl  border shadow-md" src={user.avatar} alt={user.name} />
+          <img
+            className="rounded-3xl  border shadow-md"
+            src={user.avatar}
+            alt={user.name}
+          />
         </div>
-        {/* <div className="user-info"> */}
         <div className="flex flex-col pb-10 text-center">
           <h4 className="py-1">
             <span className="font-semibold">User Name :</span> {user.name}
@@ -118,28 +121,30 @@ const Restaurant = ({ user }) => {
         </div>
       </div>
       <div className="cuisine-container">
-        <div className="flex justify-center pb-6">
-          <button
-            className=" rounded-md bg-gray-800 px-2.5 py-3 text-m font-medium text-white shadow-md ring-1 ring-inset ring-gray-300 hover:bg-gray-50 hover:text-gray-800 mt-5 w-1/3"
-            onClick={addCuis}
-          >
-            Add Cuisines
-          </button>
-        </div>
         {cuisines === false ? (
-          <div className="checkbox-wrapper">
-            {cuisineOptions.map((cuisine, index) => (
-              <div className="checkbox-group" key={index}>
-                <label htmlFor={`cuisine-${index}`}>{cuisine}</label>
-                <input
-                  id={cuisine}
-                  value={cuisine}
-                  type="checkbox"
-                  onChange={handleChange}
-                />
-              </div>
-            ))}
-          </div>
+          <>
+            <div className="flex justify-center pb-6">
+              <button
+                className=" rounded-md bg-gray-800 px-2.5 py-3 text-m font-medium text-white shadow-md ring-1 ring-inset ring-gray-300 hover:bg-gray-50 hover:text-gray-800 mt-5 w-1/3"
+                onClick={addCuis}
+              >
+                Add Cuisines
+              </button>
+            </div>
+            <div className="checkbox-wrapper">
+              {cuisineOptions.map((cuisine, index) => (
+                <div className="checkbox-group" key={index}>
+                  <label htmlFor={`cuisine-${index}`}>{cuisine}</label>
+                  <input
+                    id={cuisine}
+                    value={cuisine}
+                    type="checkbox"
+                    onChange={handleChange}
+                  />
+                </div>
+              ))}
+            </div>
+          </>
         ) : (
           <div className="text-center pt-16">
             <h5 className=" font-bold text-2xl pb-4 ">Your Cuisines</h5>
